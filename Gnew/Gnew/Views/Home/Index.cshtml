@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+<div class="alert alert-light alert-dismissible fade show" role="alert">
+    <strong>Welcome!</strong> Registration is Available.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<br />
+<div class="card-columns">
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Number of Doctors</h5>
+            <p class="card-text">@ViewBag.Doc</p>
+            <a href="~/DoctorTbs/index" class="btn btn-success">See More</a>
+        </div>
+    </div>
+
+    <div class="card border-danger mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Number of Projects</h5>
+            <p class="card-text">@ViewBag.Pro</p>
+            <a href="~/ProjectTbs/index" class="btn btn-danger">See More</a>
+
+        </div>
+    </div>
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Number of Registration</h5>
+            <p class="card-text">@ViewBag.Reg</p>
+            <a href="~/RegisterTbs/index" class="btn btn-primary">See More</a>
+        </div>
+    </div>
+</div>
+
+ 
+
+
+</div>
+
+@section style{
+    <style>
+    </style>
+}

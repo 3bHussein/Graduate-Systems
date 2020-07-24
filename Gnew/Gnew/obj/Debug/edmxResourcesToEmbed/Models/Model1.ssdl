@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GraduateDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DoctorTb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProjectTb">
+    <Key>
+      <PropertyRef Name="projectId" />
+    </Key>
+    <Property Name="projectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocId" Type="int" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Projectcode" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="RegisterTb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateReg" Type="date" />
+    <Property Name="StudentName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="StudentRegNo" Type="int" Nullable="false" />
+    <Property Name="projectId" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_ProjectTb_DoctorTb">
+    <End Role="DoctorTb" Type="Self.DoctorTb" Multiplicity="0..1" />
+    <End Role="ProjectTb" Type="Self.ProjectTb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoctorTb">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProjectTb">
+        <PropertyRef Name="DocId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegisterTb_ProjectTb">
+    <End Role="ProjectTb" Type="Self.ProjectTb" Multiplicity="0..1" />
+    <End Role="RegisterTb" Type="Self.RegisterTb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTb">
+        <PropertyRef Name="projectId" />
+      </Principal>
+      <Dependent Role="RegisterTb">
+        <PropertyRef Name="projectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GraduateDbModelStoreContainer">
+    <EntitySet Name="DoctorTb" EntityType="Self.DoctorTb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectTb" EntityType="Self.ProjectTb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegisterTb" EntityType="Self.RegisterTb" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ProjectTb_DoctorTb" Association="Self.FK_ProjectTb_DoctorTb">
+      <End Role="DoctorTb" EntitySet="DoctorTb" />
+      <End Role="ProjectTb" EntitySet="ProjectTb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegisterTb_ProjectTb" Association="Self.FK_RegisterTb_ProjectTb">
+      <End Role="ProjectTb" EntitySet="ProjectTb" />
+      <End Role="RegisterTb" EntitySet="RegisterTb" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GraduateDbModelStoreContainer" CdmEntityContainer="GraduateDbEntities">
+    <EntitySetMapping Name="DoctorTbs">
+      <EntityTypeMapping TypeName="GraduateDbModel.DoctorTb">
+        <MappingFragment StoreEntitySet="DoctorTb">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectTbs">
+      <EntityTypeMapping TypeName="GraduateDbModel.ProjectTb">
+        <MappingFragment StoreEntitySet="ProjectTb">
+          <ScalarProperty Name="projectId" ColumnName="projectId" />
+          <ScalarProperty Name="DocId" ColumnName="DocId" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="Projectcode" ColumnName="Projectcode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegisterTbs">
+      <EntityTypeMapping TypeName="GraduateDbModel.RegisterTb">
+        <MappingFragment StoreEntitySet="RegisterTb">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DateReg" ColumnName="DateReg" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="StudentRegNo" ColumnName="StudentRegNo" />
+          <ScalarProperty Name="projectId" ColumnName="projectId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
