@@ -28,7 +28,7 @@
             <div class="col-md-10">
 
 
-                @Html.EditorFor(model => model.DateReg, new { htmlAttributes = new { @class = "form-control", placeholder = " dd-mm-yyyy" } })
+                @Html.EditorFor(model => model.DateReg, new { htmlAttributes = new { @class = "form-control", placeholder = " yyyy-mm-dd" } })
                 @Html.ValidationMessageFor(model => model.DateReg, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -86,7 +86,7 @@
         $(function () {
             $("#DateReg").datepicker
                 ({
-                    dateFormat: 'dd-mm-yy',
+                    dateFormat: 'yy-mm-dd',
                     showStatus: true,
                     showWeeks: true,
                     highlightWeek: true,

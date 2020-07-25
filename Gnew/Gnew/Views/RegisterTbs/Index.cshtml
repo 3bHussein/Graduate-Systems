@@ -14,15 +14,7 @@
 
 }
 
-@Html.ActionLink("Export", "Report", "RegisterTbs", new { area = "" }, new { @class = "btn btn-danger" })
-
-<div style="padding:10px; border:1px solid black">
-    <div><a href="@Url.Action("Report",new {id= "PDF"})"> Get Report PDF</a></div>
-    <div><a href="@Url.Action("Report",new {id= "Excel"})"> Get Report Excel</a></div>
-    <div><a href="@Url.Action("Report",new {id= "Word"})"> Get Report Word</a></div>
-    <div><a href="@Url.Action("Report",new {id= "Image"})"> Get Report Image</a></div>
-</div>
-
+ 
 
 @using (Html.BeginForm("search", "RegisterTbs", FormMethod.Post))
 {
@@ -169,6 +161,14 @@
 
 
 @Html.PagedListPager((IPagedList)Model, a => Url.Action("index", new { Page = a }), PagedListRenderOptions.MinimalWithPageCountText)
+<br />
+
+@Html.ActionLink("PDF", "Report", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
+@Html.ActionLink("Excel", "Report", new { id = "Excel" }, new { @class = "btn btn-success" }) |
+@Html.ActionLink("Word", "Report", new { id = "Word" }, new { @class = "btn btn-primary" })
+
+<br />
+<br />
 
 
 @section scripts{

@@ -222,7 +222,7 @@ namespace Graduate_Systems.Controllers
 
 
             LocalReport lr = new LocalReport();
-            string path = Path.Combine(Server.MapPath("~/Report"), "Reportsa.rdlc");
+            string path = Path.Combine(Server.MapPath("~/Report"), "Report.rdlc");
             if (System.IO.File.Exists(path))
             {
                 lr.ReportPath = path;
