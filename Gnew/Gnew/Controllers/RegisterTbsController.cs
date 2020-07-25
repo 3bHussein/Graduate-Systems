@@ -71,7 +71,12 @@ namespace Graduate_Systems.Controllers
                     return View("search", db.RegisterTbs.Where(a => a.DateReg.ToString().Contains(search1)));
 
                 }
+                else if (searchby == "DoctorName")
+                {
+                    return View("search", db.RegisterTbs.Where(a => a.ProjectTb.DoctorTb.DoctorName.ToString().Contains(search1)));
 
+                }
+                
 
                 else
                     return View("search", db.RegisterTbs.ToList());
@@ -194,7 +199,7 @@ namespace Graduate_Systems.Controllers
         }
 
 
-        public ActionResult Report(string id)
+        public ActionResult Report(string id,int idd)
         {
 
 
@@ -206,6 +211,7 @@ namespace Graduate_Systems.Controllers
                           join q in db.DoctorTbs
                           on c.DocId equals q.id
 
+                     //     where c.DocId = idd
                           select new
                           {
                               p.DateReg,
@@ -234,6 +240,81 @@ namespace Graduate_Systems.Controllers
 
              ReportDataSource rd = new ReportDataSource("mydata", result);
              lr.DataSources.Add(rd);
+            string reportType = id;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+
+
+            string deviceInfo =
+
+            "<DeviceInfo>" +
+            "  <OutputFormat>" + id + "</OutputFormat>" +
+            "  <PageWidth>8.5in</PageWidth>" +
+            "  <PageHeight>11in</PageHeight>" +
+            "  <MarginTop>0.5in</MarginTop>" +
+            "  <MarginLeft>1in</MarginLeft>" +
+            "  <MarginRight>1in</MarginRight>" +
+            "  <MarginBottom>0.5in</MarginBottom>" +
+            "</DeviceInfo>";
+
+            Warning[] warnings;
+            string[] streams;
+            byte[] renderedBytes;
+
+            renderedBytes = lr.Render(
+                reportType,
+                deviceInfo,
+                out mimeType,
+                out encoding,
+                out fileNameExtension,
+                out streams,
+                out warnings);
+            return File(renderedBytes, mimeType);
+        }
+
+        public ActionResult ReportSt(string id, int idd)
+        {
+
+
+
+
+            var result = (from p in db.RegisterTbs
+                          join c in db.ProjectTbs
+                          on p.projectId equals c.projectId
+                          join q in db.DoctorTbs
+                          on c.DocId equals q.id
+
+                         // where c.DocId = idd
+                          select new
+                          {
+                              p.DateReg,
+                              p.StudentName,
+                              p.StudentRegNo,
+                              c.ProjectName,
+                              c.Projectcode,
+                              q.DoctorName
+                          }).ToList();
+
+
+            //var result2 = ().tolist();
+
+
+
+            LocalReport lr = new LocalReport();
+            string path = Path.Combine(Server.MapPath("~/Report"), "Report.rdlc");
+            if (System.IO.File.Exists(path))
+            {
+                lr.ReportPath = path;
+            }
+            else
+            {
+                return View("Index");
+            }
+
+            ReportDataSource rd = new ReportDataSource("mydata", result);
+            lr.DataSources.Add(rd);
             string reportType = id;
             string mimeType;
             string encoding;

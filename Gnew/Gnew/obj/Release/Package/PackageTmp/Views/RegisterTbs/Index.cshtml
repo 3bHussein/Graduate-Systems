@@ -1,0 +1,177 @@
+﻿@model IEnumerable<Gnew.Models.RegisterTb>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@using PagedList;
+@using PagedList.Mvc;
+
+@section style{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+
+
+}
+
+ 
+
+@using (Html.BeginForm("search", "RegisterTbs", FormMethod.Post))
+{
+    <p style="width:100px;">
+
+    </p>
+
+    <div class="form-group d-block">
+        @*<label for="exampleInputPassword1">Search</label>*@
+        @Html.TextBox("search1", null, new { @class = "search-box form-control", style = "", placeholder = "ادخل اسم الطالب" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        search
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </button>
+    <br />
+
+    <br />
+
+    <table class="table " id="deviceTable">
+        <tr>
+            <td colspan="5">
+                <span id="deviceCheckboxes" class="input-group-addon">
+                    <input type="radio" name="searchby" value="StudentName" checked>StudentName
+                </span>
+            </td>
+            <td colspan="5">
+
+                <span id="deviceCheckboxes" class="input-group-addon">
+                    <input type="radio" name="searchby" value="StudentCode">StudentCode
+                </span>
+            </td>
+            <td colspan="5">
+
+                <span id="deviceCheckboxes" class="input-group-addon">
+                    <input type="radio" name="searchby" value="ProjectName">ProjectName
+                </span>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="5">
+                <span id="deviceCheckboxes" class="input-group-addon">
+                    <input type="radio" name="searchby" value="ProjectCode">ProjectCode
+                </span>
+            </td>
+            <td colspan="5">
+
+                <span id="deviceCheckboxes" class="input-group-addon">
+                    <input type="radio" name="searchby" value="Date">Date
+                </span>
+            </td>
+
+
+        </tr>
+    </table>
+
+
+}
+
+
+@*@Html.TextBox("search1", null, new { @class = "search-box form-control", style = "", placeholder = "ادخل اسم الطالب" })
+
+@Ajax.ActionLink("search1", "all", new AjaxOptions()
+        {
+    HttpMethod = "GET",
+    UpdateTargetId = "diva",
+    InsertionMode = InsertionMode.Replace
+            }
+    )
+ 
+
+<div id="diva"></div>*@
+
+
+
+
+<p>
+    <br />
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+</p>
+
+<div class="table-responsive ">
+    <table class="table table-bordered  table-hover rounded-circle">
+        <thead class="bg-info">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateReg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentRegNo)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectTb.ProjectName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectTb.Projectcode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td class="table-active">
+                        @Html.DisplayFor(modelItem => item.DateReg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentRegNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProjectTb.ProjectName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelite => item.ProjectTb.Projectcode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@Html.PagedListPager((IPagedList)Model, a => Url.Action("index", new { Page = a }), PagedListRenderOptions.MinimalWithPageCountText)
+<br />
+
+@Html.ActionLink("PDF", "Report", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
+@Html.ActionLink("Excel", "Report", new { id = "Excel" }, new { @class = "btn btn-success" }) |
+@Html.ActionLink("Word", "Report", new { id = "Word" }, new { @class = "btn btn-primary" })
+
+<br />
+<br />
+
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}

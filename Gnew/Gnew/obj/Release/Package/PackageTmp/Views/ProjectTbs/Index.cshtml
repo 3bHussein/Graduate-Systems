@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Gnew.Models.ProjectTb>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="text-center">
+
+    <h2>Project List</h2>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+</p>
+<div class="table-responsive ">
+
+    <table class="table table-bordered  table-hover rounded-circle">
+        <thead class="bg-danger">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoctorTb.DoctorName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Projectcode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorTb.DoctorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Projectcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+
+        <td>
+
+
+            @Html.ActionLink("Edit", "Edit", new { id = item.projectId }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.projectId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.projectId }, new { @class = "btn btn-danger" })
+
+        </td>
+    </tr>
+        }
+
+    </table>
+    </div>

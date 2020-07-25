@@ -104,6 +104,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.ProjectTb.Projectcode)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectTb.DoctorTb.DoctorName)
+                </th>
+
 
                 <th>
                     @Html.DisplayNameFor(model => model.Description)
@@ -130,6 +134,10 @@
                 <td>
                     @Html.DisplayFor(modelite => item.ProjectTb.Projectcode)
                 </td>
+                <th>
+                    @Html.DisplayFor(model => item.ProjectTb.DoctorTb.DoctorName)
+                </th>
+
 
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)

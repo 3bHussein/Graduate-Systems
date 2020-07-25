@@ -65,9 +65,16 @@
             <td colspan="5">
 
                 <span id="deviceCheckboxes" class="input-group-addon">
+                    <input type="radio" name="searchby" value="DoctorName">DoctorName
+                </span>
+            </td>
+            <td colspan="5">
+
+                <span id="deviceCheckboxes" class="input-group-addon">
                     <input type="radio" name="searchby" value="Date">Date
                 </span>
             </td>
+
 
 
         </tr>
@@ -119,11 +126,15 @@
                     @Html.DisplayNameFor(model => model.ProjectTb.Projectcode)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.ProjectTb.DoctorTb.DoctorName)
+                </th>
+
+                <th>
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
                 <th></th>
             </tr>
-        </thead>
+        </thead>    
         <tbody>
             @foreach (var item in Model)
             {
@@ -144,6 +155,9 @@
                     <td>
                         @Html.DisplayFor(modelite => item.ProjectTb.Projectcode)
                     </td>
+                    <th>
+                        @Html.DisplayFor(model => item  .ProjectTb.DoctorTb.DoctorName)
+                    </th>
                     <td>
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>

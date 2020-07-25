@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GraduateDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DoctorTb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoctorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProjectTbs" Relationship="Self.FK_ProjectTb_DoctorTb" FromRole="DoctorTb" ToRole="ProjectTb" />
+  </EntityType>
+  <EntityType Name="ProjectTb">
+    <Key>
+      <PropertyRef Name="projectId" />
+    </Key>
+    <Property Name="projectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocId" Type="Int32" />
+    <Property Name="ProjectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Projectcode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DoctorTb" Relationship="Self.FK_ProjectTb_DoctorTb" FromRole="ProjectTb" ToRole="DoctorTb" />
+    <NavigationProperty Name="RegisterTbs" Relationship="Self.FK_RegisterTb_ProjectTb" FromRole="ProjectTb" ToRole="RegisterTb" />
+  </EntityType>
+  <EntityType Name="RegisterTb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateReg" Type="DateTime" Precision="0" />
+    <Property Name="StudentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StudentRegNo" Type="Int32" Nullable="false" />
+    <Property Name="projectId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProjectTb" Relationship="Self.FK_RegisterTb_ProjectTb" FromRole="RegisterTb" ToRole="ProjectTb" />
+  </EntityType>
+  <Association Name="FK_ProjectTb_DoctorTb">
+    <End Role="DoctorTb" Type="Self.DoctorTb" Multiplicity="0..1" />
+    <End Role="ProjectTb" Type="Self.ProjectTb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoctorTb">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProjectTb">
+        <PropertyRef Name="DocId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RegisterTb_ProjectTb">
+    <End Role="ProjectTb" Type="Self.ProjectTb" Multiplicity="0..1" />
+    <End Role="RegisterTb" Type="Self.RegisterTb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTb">
+        <PropertyRef Name="projectId" />
+      </Principal>
+      <Dependent Role="RegisterTb">
+        <PropertyRef Name="projectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GraduateDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DoctorTbs" EntityType="Self.DoctorTb" />
+    <EntitySet Name="ProjectTbs" EntityType="Self.ProjectTb" />
+    <EntitySet Name="RegisterTbs" EntityType="Self.RegisterTb" />
+    <AssociationSet Name="FK_ProjectTb_DoctorTb" Association="Self.FK_ProjectTb_DoctorTb">
+      <End Role="DoctorTb" EntitySet="DoctorTbs" />
+      <End Role="ProjectTb" EntitySet="ProjectTbs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RegisterTb_ProjectTb" Association="Self.FK_RegisterTb_ProjectTb">
+      <End Role="ProjectTb" EntitySet="ProjectTbs" />
+      <End Role="RegisterTb" EntitySet="RegisterTbs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

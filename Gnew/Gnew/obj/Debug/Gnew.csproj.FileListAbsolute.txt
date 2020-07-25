@@ -339,8 +339,8 @@ D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\bin\Microsoft.Owin.Security.Twitte
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.csprojResolveAssemblyReference.cache
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\RdlCompile.cache
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\RdlCompile.compiled
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.dll
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.pdb
+D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.csprojResolveAssemblyReference.cache
