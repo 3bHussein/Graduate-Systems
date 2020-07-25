@@ -14,53 +14,64 @@
         <div>
             @using (Html.BeginForm("SearchbyDoc", "RegisterTbs", FormMethod.Post))
             {
-                <div class=''>
+            <div class=''>
 
-                    <p style="width:100px;">
+                <p style="width:100px;">
 
-                    </p>
+                </p>
 
-                    <div class="form-group d-block">
-                        @Html.TextBox("text1", null, new { @class = "search-box form-control hidden", style = "display:none", placeholder = "ادخل اسم الطالب" })
+                <div class="form-group d-block">
+                    @Html.TextBox("text1", null, new { @class = "search-box form-control hidden", style = "display:none", placeholder = "ادخل اسم الطالب" })
 
-                        @*<input type="text" id="text1" />*@
-                        @Html.DropDownList("DocId", null,"-----Select Doctor-----", htmlAttributes: new { @class = "form-control", @onChange = "myf(this)" })
-
-
-
-
-                        @section Scripts {
-                            @Scripts.Render("~/bundles/jqueryval")
-
-                            <script>
-                                function myf(aadd) {
-                                    var x = aadd.value;
-                                    var z = aadd.options[aadd.selectedIndex].innerHTML;
-                                    $('#text1').val(z);
-
-                                }
-                            </script>
-                        }
-
-
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">
-                        search
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-
-                    |
-
-                    <a href="~/RegisterTbs/SearchbyDoc" class="btn btn-info">back</a>
+                    @*<input type="text" id="text1" />*@
+                    @Html.DropDownList("DocId", null, "-----Select Doctor-----", htmlAttributes: new { @class = "form-control", @onChange = "myf(this)" })
 
 
 
-                    <br />
-                    <br />
+
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+
+                        <script>
+                            function myf(aadd) {
+                                var x = aadd.value;
+                                var z = aadd.options[aadd.selectedIndex].innerHTML;
+                                $('#text1').val(z);
+
+                            }
+                        </script>
+                    }
 
 
                 </div>
+
+                <br />
+
+                @Html.ActionLink("PDF", "Report", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
+                @Html.ActionLink("Excel", "Report", new { id = "Excel" }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Word", "Report", new { id = "Word" }, new { @class = "btn btn-primary" })
+
+                <br />
+                <br />
+
+
+
+                <button type="submit" class="btn btn-primary">
+                    search
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+
+                |
+
+                <a href="~/RegisterTbs/SearchbyDoc" class="btn btn-info">back</a>
+
+
+
+                <br />
+                <br />
+
+
+            </div>
             }
         </div>
 

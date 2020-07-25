@@ -84,11 +84,12 @@ namespace Graduate_Systems.Controllers
             }
 
         }
+       static string x;
 
         public ActionResult SearchbyDoc(string text1)
         {
 
-
+            x = text1;
             ViewBag.DocId = new SelectList(db.DoctorTbs, "id", "DoctorName ");
 
 
@@ -238,11 +239,11 @@ namespace Graduate_Systems.Controllers
         }
 
 
-        public ActionResult Report(string id)
+        public ActionResult Report(string id,string name)
         {
 
 
-
+            name = x;
 
             var result = (from p in db.RegisterTbs
                           join c in db.ProjectTbs
@@ -250,7 +251,9 @@ namespace Graduate_Systems.Controllers
                           join q in db.DoctorTbs
                           on c.DocId equals q.id
 
-                     //     where c.DocId = idd
+                          where q.DoctorName== x
+
+                          //     where c.DocId = idd
                           select new
                           {
                               p.DateReg,

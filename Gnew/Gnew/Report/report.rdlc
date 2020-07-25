@@ -466,7 +466,7 @@
         <Top>0.92054in</Top>
         <Left>0.11161in</Left>
         <Height>0.82292in</Height>
-        <Width>5.84925in</Width>
+        <Width>5.84924in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -494,6 +494,16 @@
   </Body>
   <Width>12.57871in</Width>
   <Page>
+    <PageFooter>
+      <Height>1in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
     <TopMargin>1in</TopMargin>
