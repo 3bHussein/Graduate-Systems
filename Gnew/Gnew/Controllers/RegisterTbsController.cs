@@ -85,6 +85,37 @@ namespace Graduate_Systems.Controllers
 
         }
 
+        public ActionResult SearchbyDoc(string text1)
+        {
+
+
+            ViewBag.DocId = new SelectList(db.DoctorTbs, "id", "DoctorName ");
+
+
+            var QSCount2 = (from emp in db.RegisterTbs
+                            select emp).Where(a=>a.ProjectTb.DoctorTb.DoctorName== text1).Count();
+
+
+            ViewBag.Reg = QSCount2;
+
+            return View("SearchbyDoc", db.RegisterTbs.Where(a => a.ProjectTb.DoctorTb.DoctorName.ToString().Contains(text1)));
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
 
 
 
@@ -111,6 +142,14 @@ namespace Graduate_Systems.Controllers
             ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "ProjectName");
             return View();
         }
+        public ActionResult Create1()
+        {
+            ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "ProjectName");
+            ViewBag.doctorid = new SelectList(db.DoctorTbs, "id", "DoctorName ");
+
+            return View();
+        }
+
 
         // POST: RegisterTbs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -199,7 +238,7 @@ namespace Graduate_Systems.Controllers
         }
 
 
-        public ActionResult Report(string id,int idd)
+        public ActionResult Report(string id)
         {
 
 
