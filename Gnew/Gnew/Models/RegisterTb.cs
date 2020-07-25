@@ -11,18 +11,12 @@ namespace Gnew.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class RegisterTb
     {
         public int id { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}")]
-        [Required]
         public Nullable<System.DateTime> DateReg { get; set; }
-        [Required]
         public string StudentName { get; set; }
-        [Required]
         public int StudentRegNo { get; set; }
         public Nullable<int> projectId { get; set; }
         public string Description { get; set; }
