@@ -162,7 +162,15 @@
                     <td class="col-4  col-sm-2">
                         @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" }) |
                         @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })*@
+
+
+@if (User.IsInRole("owner"))
+{
+    @: | @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+}
+
                     </td>
                 </tr>
             }

@@ -12,15 +12,13 @@ namespace Gnew.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class RegisterTb
+    public partial class AspNetUserClaim
     {
-        public int id { get; set; }
-        public Nullable<System.DateTime> DateReg { get; set; }
-        public string StudentName { get; set; }
-        public int StudentRegNo { get; set; }
-        public Nullable<int> projectId { get; set; }
-        public string Description { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
     
-        public virtual ProjectTb ProjectTb { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

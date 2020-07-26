@@ -11,8 +11,7 @@ namespace Gnew.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class ProjectTb
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,11 +22,7 @@ namespace Gnew.Models
     
         public int projectId { get; set; }
         public Nullable<int> DocId { get; set; }
-        [Required]
-
         public string ProjectName { get; set; }
-        [Required]
-
         public string Projectcode { get; set; }
         public string Description { get; set; }
     

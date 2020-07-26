@@ -15,6 +15,8 @@ using System.IO;
 
 namespace Graduate_Systems.Controllers
 {
+    [Authorize]
+
     public class RegisterTbsController : Controller
     {
         private GraduateDbEntities db = new GraduateDbEntities();

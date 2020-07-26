@@ -10,6 +10,8 @@ using Gnew.Models;
 
 namespace Gnew.Controllers
 {
+    [Authorize]
+
     public class ProjectTbsController : Controller
     {
         private GraduateDbEntities db = new GraduateDbEntities();

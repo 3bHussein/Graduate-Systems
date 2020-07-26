@@ -14,7 +14,7 @@
     <div>
         @using (Html.BeginForm("search", "RegisterTbs", FormMethod.Post))
         {
-            <div class=''>
+            <div class='container'>
 
                 <p style="width:100px;">
 
@@ -23,36 +23,77 @@
                 <div class="form-group d-block">
                     @Html.TextBox("search1", null, new { @class = "search-box form-control", style = "", placeholder = "ادخل اسم الطالب" })
                 </div>
+ 
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" name="searchby" value="StudentName" checked class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline1">StudentName</label>
 
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" name="searchby" value="StudentCode" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline2">StudentCode</label>
+
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline3" name="searchby" value="ProjectName" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline3">ProjectName</label>
+
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline4" name="searchby" value="ProjectCode" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline4">ProjectCode</label>
+
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline5" name="searchby" value="DoctorName" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline5">DoctorName</label>
+
+                </div>
+                <br />
+                <br />
                 <button type="submit" class="btn btn-primary">
                     search
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
+                 |
+                 <a href="~/RegisterTbs/index" class="btn btn-info">back</a>
 
-                |
-
-                <a href="~/RegisterTbs/index" class="btn btn-info">back</a>
-
-
+                <br />
+                <br />
+ 
+                @Html.ActionLink("PDF", "Report", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
+                @Html.ActionLink("Excel", "Report", new { id = "Excel" }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Word", "Report", new { id = "Word" }, new { @class = "btn btn-primary" })
 
                 <br />
                 <br />
 
 
-                <table class="table " id="deviceTable">
+
+
+
+
+
+
+
+                @*<table class="table " id="deviceTable">
                     <tr>
-                        <td colspan="5">
+                        <td colspan="4">
                             <span id="deviceCheckboxes" class="input-group-addon">
                                 <input type="radio" name="searchby" value="StudentName" checked>StudentName
                             </span>
                         </td>
-                        <td colspan="5">
+                        <td colspan="4">
 
                             <span id="deviceCheckboxes" class="input-group-addon">
                                 <input type="radio" name="searchby" value="StudentCode">StudentCode
                             </span>
                         </td>
-                        <td colspan="5">
+                        <td colspan="4">
 
                             <span id="deviceCheckboxes" class="input-group-addon">
                                 <input type="radio" name="searchby" value="ProjectName">ProjectName
@@ -61,12 +102,19 @@
 
                     </tr>
                     <tr>
-                        <td colspan="5">
+                        <td colspan="4">
                             <span id="deviceCheckboxes" class="input-group-addon">
                                 <input type="radio" name="searchby" value="ProjectCode">ProjectCode
                             </span>
                         </td>
-                        <td colspan="5">
+                        <td colspan="4">
+
+                            <span id="deviceCheckboxes" class="input-group-addon">
+                                <input type="radio" name="searchby" value="DoctorName">DoctorName
+                            </span>
+                        </td>
+
+                        <td colspan="4">
 
                             <span id="deviceCheckboxes" class="input-group-addon">
                                 <input type="radio" name="searchby" value="Date">Date
@@ -75,7 +123,7 @@
 
 
                     </tr>
-                </table>
+                </table>*@
             </div>
         }
     </div>
@@ -104,11 +152,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.ProjectTb.Projectcode)
                 </th>
-
                 <th>
-                    @Html.DisplayNameFor(model => model.Description)
+                    @Html.DisplayNameFor(model => model.ProjectTb.DoctorTb.DoctorName)
                 </th>
-                <th></th>
+
+
+                 <th></th>
             </tr>
         </thead>
 
@@ -130,14 +179,18 @@
                 <td>
                     @Html.DisplayFor(modelite => item.ProjectTb.Projectcode)
                 </td>
+                <th>
+                    @Html.DisplayFor(model => item.ProjectTb.DoctorTb.DoctorName)
+                </th>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
+
+                 <td class="col-4  col-sm-2">
                     @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" }) |
                     @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })|
+                    @Html.ActionLink("Export", "Reportbyst", new { id = item.id }, new { @class = "btn btn-danger" })
+
+
                 </td>
             </tr>
         }

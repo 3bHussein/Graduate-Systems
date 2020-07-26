@@ -19,7 +19,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="bin/Gnew.dll">
-      <publishTime>07/25/2020 13:27:08</publishTime>
+      <publishTime>07/26/2020 13:15:12</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -615,6 +615,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/RegisterTbs/Create.cshtml">
       <publishTime>07/25/2020 13:09:33</publishTime>
     </File>
+    <File Include="Views/RegisterTbs/Create1.cshtml">
+      <publishTime>07/26/2020 09:49:09</publishTime>
+    </File>
     <File Include="Views/RegisterTbs/Delete.cshtml">
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
@@ -625,10 +628,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Index.cshtml">
-      <publishTime>07/25/2020 12:55:08</publishTime>
+      <publishTime>07/26/2020 11:58:20</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Search.cshtml">
-      <publishTime>07/24/2020 21:57:54</publishTime>
+      <publishTime>07/26/2020 12:44:28</publishTime>
+    </File>
+    <File Include="Views/RegisterTbs/SearchbyDoc.cshtml">
+      <publishTime>07/26/2020 12:48:31</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -637,7 +643,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/24/2020 21:57:54</publishTime>
+      <publishTime>07/26/2020 09:49:09</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>07/24/2020 21:57:54</publishTime>

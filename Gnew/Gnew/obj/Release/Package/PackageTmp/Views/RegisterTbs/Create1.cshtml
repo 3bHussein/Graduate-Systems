@@ -1,0 +1,117 @@
+﻿@model Gnew.Models.RegisterTb
+
+@{
+    ViewBag.Title = "Create1";
+}
+
+<h2>Create1</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>RegisterTb</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateReg, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DateReg, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DateReg, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StudentName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.StudentName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.StudentName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StudentRegNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.StudentRegNo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.StudentRegNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.projectId, "doctorid", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("doctorid", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.projectId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    @using (Html.BeginForm("search", "RegisterTbs", FormMethod.Post))
+    {
+        <p style="width:100px;">
+
+        </p>
+
+        <div class="form-group d-block">
+            @*<label for="exampleInputPassword1">Search</label>*@
+            @Html.TextBox("search1", null, new { @class = "search-box form-control", style = "", placeholder = "ادخل اسم الطالب" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            search
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+
+    }
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.projectId, "projectName", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("projectId", null, htmlAttributes: new { @class = "form-control", @onChange = "myf(this)" })
+            @Html.ValidationMessageFor(model => model.projectId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <input type="text" id="text1" />
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+        <script>
+            function myf(aadd) {
+                var x = aadd.value;
+                var z = aadd.options[aadd.selectedIndex].innerHTML;
+                $('#text1').val(z);
+
+            }
+        </script>
+    }
+
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
