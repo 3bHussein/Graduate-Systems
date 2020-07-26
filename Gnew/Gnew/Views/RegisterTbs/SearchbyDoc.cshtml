@@ -12,6 +12,7 @@
         </div>
 
         <div>
+
             @using (Html.BeginForm("SearchbyDoc", "RegisterTbs", FormMethod.Post))
             {
             <div class=''>
@@ -47,14 +48,6 @@
 
                 <br />
 
-                @Html.ActionLink("PDF", "Report", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
-                @Html.ActionLink("Excel", "Report", new { id = "Excel" }, new { @class = "btn btn-success" }) |
-                @Html.ActionLink("Word", "Report", new { id = "Word" }, new { @class = "btn btn-primary" })
-
-                <br />
-                <br />
-
-
 
                 <button type="submit" class="btn btn-primary">
                     search
@@ -65,17 +58,23 @@
 
                 <a href="~/RegisterTbs/SearchbyDoc" class="btn btn-info">back</a>
 
+                 <br />
 
 
-                <br />
-                <br />
+
+
 
 
             </div>
             }
         </div>
+        <p>
+            <h5>Total Students:</h5>
 
-        @ViewBag.Reg 
+            @ViewBag.Reg
+
+
+        </p>
 
 
 
@@ -149,4 +148,10 @@
     </table>
 </div>
 
+@Html.ActionLink("PDF", "Reportbydoc", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
+@Html.ActionLink("Excel", "Reportbydoc", new { id = "Excel" }, new { @class = "btn btn-success" }) |
+@Html.ActionLink("Word", "Reportbydoc", new { id = "Word" }, new { @class = "btn btn-primary" })
+
+<br />
+<br />
 
