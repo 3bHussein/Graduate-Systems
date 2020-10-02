@@ -25,6 +25,11 @@ namespace Gnew.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUserRole> AspNetUserRoles { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<DoctorTb> DoctorTbs { get; set; }
         public virtual DbSet<ProjectTb> ProjectTbs { get; set; }
         public virtual DbSet<RegisterTb> RegisterTbs { get; set; }

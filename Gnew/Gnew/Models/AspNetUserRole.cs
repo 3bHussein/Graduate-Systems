@@ -12,19 +12,13 @@ namespace Gnew.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DoctorTb
+    public partial class AspNetUserRole
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DoctorTb()
-        {
-            this.ProjectTbs = new HashSet<ProjectTb>();
-        }
-    
-        public int id { get; set; }
-        public string DoctorName { get; set; }
+        public string UserId { get; set; }
+        public string RoleId { get; set; }
         public string Description { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProjectTb> ProjectTbs { get; set; }
+        public virtual AspNetRole AspNetRole { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

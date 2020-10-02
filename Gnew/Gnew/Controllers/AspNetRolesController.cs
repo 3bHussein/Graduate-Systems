@@ -10,109 +10,107 @@ using Gnew.Models;
 
 namespace Gnew.Controllers
 {
-    [Authorize]
-
-    public class DoctorTbsController : Controller
+    public class AspNetRolesController : Controller
     {
         private GraduateDbEntities db = new GraduateDbEntities();
 
-        // GET: DoctorTbs
+        // GET: AspNetRoles
         public ActionResult Index()
         {
-            return View(db.DoctorTbs.ToList());
+            return View(db.AspNetRoles.ToList());
         }
 
-        // GET: DoctorTbs/Details/5
-        public ActionResult Details(int? id)
+        // GET: AspNetRoles/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoctorTb doctorTb = db.DoctorTbs.Find(id);
-            if (doctorTb == null)
+            AspNetRole aspNetRole = db.AspNetRoles.Find(id);
+            if (aspNetRole == null)
             {
                 return HttpNotFound();
             }
-            return View(doctorTb);
+            return View(aspNetRole);
         }
 
-        // GET: DoctorTbs/Create
+        // GET: AspNetRoles/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: DoctorTbs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // POST: AspNetRoles/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,DoctorName,Description")] DoctorTb doctorTb)
+        public ActionResult Create([Bind(Include = "Id,Name")] AspNetRole aspNetRole)
         {
             if (ModelState.IsValid)
             {
-                db.DoctorTbs.Add(doctorTb);
+                db.AspNetRoles.Add(aspNetRole);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(doctorTb);
+            return View(aspNetRole);
         }
 
-        // GET: DoctorTbs/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: AspNetRoles/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoctorTb doctorTb = db.DoctorTbs.Find(id);
-            if (doctorTb == null)
+            AspNetRole aspNetRole = db.AspNetRoles.Find(id);
+            if (aspNetRole == null)
             {
                 return HttpNotFound();
             }
-            return View(doctorTb);
+            return View(aspNetRole);
         }
 
-        // POST: DoctorTbs/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // POST: AspNetRoles/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,DoctorName,Description")] DoctorTb doctorTb)
+        public ActionResult Edit([Bind(Include = "Id,Name")] AspNetRole aspNetRole)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(doctorTb).State = EntityState.Modified;
+                db.Entry(aspNetRole).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(doctorTb);
+            return View(aspNetRole);
         }
 
-        // GET: DoctorTbs/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: AspNetRoles/Delete/5
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoctorTb doctorTb = db.DoctorTbs.Find(id);
-            if (doctorTb == null)
+            AspNetRole aspNetRole = db.AspNetRoles.Find(id);
+            if (aspNetRole == null)
             {
                 return HttpNotFound();
             }
-            return View(doctorTb);
+            return View(aspNetRole);
         }
 
-        // POST: DoctorTbs/Delete/5
+        // POST: AspNetRoles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            DoctorTb doctorTb = db.DoctorTbs.Find(id);
-            db.DoctorTbs.Remove(doctorTb);
+            AspNetRole aspNetRole = db.AspNetRoles.Find(id);
+            db.AspNetRoles.Remove(aspNetRole);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
