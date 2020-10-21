@@ -82,21 +82,43 @@
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script type="text/javascript">
 
+        // $(function () {
+        //    $("#DateReg").datepicker
+        //        ({
+        //            dateFormat: 'yy-mm-dd',
+        //            timeFormat:  "hh:mm:ss",
+        //            showStatus: true,
+        //            showWeeks: true,
+        //            highlightWeek: true,
+        //            numberOfMonths: 1,
+        //            showAnim: "clip",
+        //            //showAnim: "fold",
+        //            showOptions: {
+        //                origin: ["top", "left"]
+        //            }
+        //        });
+        //});
 
         $(function () {
-            $("#DateReg").datepicker
-                ({
-                    dateFormat: 'yy-mm-dd',
-                    showStatus: true,
-                    showWeeks: true,
-                    highlightWeek: true,
-                    numberOfMonths: 1,
-                    showAnim: "clip",
-                    //showAnim: "fold",
-                    showOptions: {
-                        origin: ["top", "left"]
-                    }
-                });
+            $('#DateReg').datepicker({
+                dateFormat: 'yy-mm-dd',
+                onSelect: function (datetext) {
+                    var d = new Date(); // for now
+
+                    var h = d.getHours();
+                    h = (h < 10) ? ("0" + h) : h;
+
+                    var m = d.getMinutes();
+                    m = (m < 10) ? ("0" + m) : m;
+
+                    var s = d.getSeconds();
+                    s = (s < 10) ? ("0" + s) : s;
+
+                    datetext += " " + h + ":" + m + ":" + s;
+
+                    $('#DateReg').val(datetext);
+                }
+            });
         });
     </script>
 }

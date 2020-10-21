@@ -11,10 +11,12 @@ namespace Gnew.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class RegisterTb
     {
         public int id { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy hh:mm:ss tt}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> DateReg { get; set; }
         public string StudentName { get; set; }
         public int StudentRegNo { get; set; }

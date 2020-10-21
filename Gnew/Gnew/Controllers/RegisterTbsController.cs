@@ -142,12 +142,17 @@ namespace Graduate_Systems.Controllers
         // GET: RegisterTbs/Create
         public ActionResult Create()
         {
-            ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "ProjectName");
+            //ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "ProjectName");
+            ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "Projectcode");
+
             return View();
         }
         public ActionResult Create1()
         {
-            ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "ProjectName");
+            
+                            //ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "ProjectName");
+
+            ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "Projectcode");
             ViewBag.doctorid = new SelectList(db.DoctorTbs, "id", "DoctorName ");
 
             return View();
