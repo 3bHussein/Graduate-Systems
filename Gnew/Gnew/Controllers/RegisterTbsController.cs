@@ -15,7 +15,7 @@ using System.IO;
 
 namespace Graduate_Systems.Controllers
 {
-    [Authorize]
+    //[Authorize]
 
     public class RegisterTbsController : Controller
     {
