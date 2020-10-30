@@ -164,7 +164,7 @@ namespace Graduate_Systems.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,DateReg,StudentName,StudentRegNo,projectId,Description")] RegisterTb registerTb)
+        public ActionResult Create([Bind(Include = "id,DateReg,StudentName,StudentRegNo,projectId,Description,StudnetPhoneNumber")] RegisterTb registerTb)
         {
             if (ModelState.IsValid)
             {

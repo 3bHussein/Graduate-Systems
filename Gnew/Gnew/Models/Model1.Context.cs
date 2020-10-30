@@ -33,5 +33,6 @@ namespace Gnew.Models
         public virtual DbSet<DoctorTb> DoctorTbs { get; set; }
         public virtual DbSet<ProjectTb> ProjectTbs { get; set; }
         public virtual DbSet<RegisterTb> RegisterTbs { get; set; }
+        public virtual DbSet<StudentTb> StudentTbs { get; set; }
     }
 }

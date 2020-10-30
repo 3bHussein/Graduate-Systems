@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectTbsController.cs" />
     <Compile Include="Controllers\RegisterTbsController.cs" />
+    <Compile Include="Controllers\StudentTbsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -243,6 +244,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RegisterTb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentTb.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -430,6 +434,11 @@
     <Content Include="Views\AspNetUserRoles\Details.cshtml" />
     <Content Include="Views\AspNetUserRoles\Edit.cshtml" />
     <Content Include="Views\AspNetUserRoles\Index.cshtml" />
+    <Content Include="Views\StudentTbs\Create.cshtml" />
+    <Content Include="Views\StudentTbs\Delete.cshtml" />
+    <Content Include="Views\StudentTbs\Details.cshtml" />
+    <Content Include="Views\StudentTbs\Edit.cshtml" />
+    <Content Include="Views\StudentTbs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -33,7 +33,7 @@
     </Key>
     <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="AspNetUsers">
     <Key>
@@ -59,6 +59,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DoctorName" Type="nvarchar" MaxLength="100" />
     <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Maximum of Reg" Type="int" />
   </EntityType>
   <EntityType Name="ProjectTb">
     <Key>
@@ -75,11 +76,19 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DateReg" Type="date" />
+    <Property Name="DateReg" Type="datetime" />
     <Property Name="StudentName" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="StudentRegNo" Type="int" Nullable="false" />
     <Property Name="projectId" Type="int" />
     <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="StudnetPhoneNumber" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="StudentTb">
+    <Key>
+      <PropertyRef Name="StundentRegNo" />
+    </Key>
+    <Property Name="StundentRegNo" Type="int" Nullable="false" />
+    <Property Name="StundentName" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -170,6 +179,7 @@
     <EntitySet Name="DoctorTb" EntityType="Self.DoctorTb" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProjectTb" EntityType="Self.ProjectTb" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RegisterTb" EntityType="Self.RegisterTb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentTb" EntityType="Self.StudentTb" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />

@@ -22,6 +22,7 @@ namespace Gnew.Models
         public int StudentRegNo { get; set; }
         public Nullable<int> projectId { get; set; }
         public string Description { get; set; }
+        public string StudnetPhoneNumber { get; set; }
     
         public virtual ProjectTb ProjectTb { get; set; }
     }

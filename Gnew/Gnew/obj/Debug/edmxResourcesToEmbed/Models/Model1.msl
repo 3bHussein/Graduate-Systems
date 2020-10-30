@@ -61,6 +61,7 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Maximum_of_Reg" ColumnName="Maximum of Reg" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -84,6 +85,15 @@
           <ScalarProperty Name="StudentRegNo" ColumnName="StudentRegNo" />
           <ScalarProperty Name="projectId" ColumnName="projectId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StudnetPhoneNumber" ColumnName="StudnetPhoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentTbs">
+      <EntityTypeMapping TypeName="GraduateDbModel.StudentTb">
+        <MappingFragment StoreEntitySet="StudentTb">
+          <ScalarProperty Name="StundentRegNo" ColumnName="StundentRegNo" />
+          <ScalarProperty Name="StundentName" ColumnName="StundentName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

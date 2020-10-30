@@ -38,7 +38,7 @@
           </Key>
           <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="AspNetUsers">
           <Key>
@@ -64,6 +64,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DoctorName" Type="nvarchar" MaxLength="100" />
           <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Maximum of Reg" Type="int" />
         </EntityType>
         <EntityType Name="ProjectTb">
           <Key>
@@ -80,11 +81,19 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateReg" Type="date" />
+          <Property Name="DateReg" Type="datetime" />
           <Property Name="StudentName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="StudentRegNo" Type="int" Nullable="false" />
           <Property Name="projectId" Type="int" />
           <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="StudnetPhoneNumber" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="StudentTb">
+          <Key>
+            <PropertyRef Name="StundentRegNo" />
+          </Key>
+          <Property Name="StundentRegNo" Type="int" Nullable="false" />
+          <Property Name="StundentName" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -175,6 +184,7 @@
           <EntitySet Name="DoctorTb" EntityType="Self.DoctorTb" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProjectTb" EntityType="Self.ProjectTb" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RegisterTb" EntityType="Self.RegisterTb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentTb" EntityType="Self.StudentTb" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -241,7 +251,7 @@
           </Key>
           <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetRole" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetUserRoles" ToRole="AspNetRoles" />
           <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUserRoles" ToRole="AspNetUsers" />
         </EntityType>
@@ -272,6 +282,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DoctorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Maximum_of_Reg" Type="Int32" />
           <NavigationProperty Name="ProjectTbs" Relationship="Self.FK_ProjectTb_DoctorTb" FromRole="DoctorTb" ToRole="ProjectTb" />
         </EntityType>
         <EntityType Name="ProjectTb">
@@ -291,12 +302,20 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateReg" Type="DateTime" Precision="0" />
+          <Property Name="DateReg" Type="DateTime" Precision="3" />
           <Property Name="StudentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StudentRegNo" Type="Int32" Nullable="false" />
           <Property Name="projectId" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StudnetPhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ProjectTb" Relationship="Self.FK_RegisterTb_ProjectTb" FromRole="RegisterTb" ToRole="ProjectTb" />
+        </EntityType>
+        <EntityType Name="StudentTb">
+          <Key>
+            <PropertyRef Name="StundentRegNo" />
+          </Key>
+          <Property Name="StundentRegNo" Type="Int32" Nullable="false" />
+          <Property Name="StundentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
           <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="1">
@@ -387,6 +406,7 @@
           <EntitySet Name="DoctorTbs" EntityType="Self.DoctorTb" />
           <EntitySet Name="ProjectTbs" EntityType="Self.ProjectTb" />
           <EntitySet Name="RegisterTbs" EntityType="Self.RegisterTb" />
+          <EntitySet Name="StudentTbs" EntityType="Self.StudentTb" />
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
@@ -478,6 +498,7 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Maximum_of_Reg" ColumnName="Maximum of Reg" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -501,6 +522,15 @@
                 <ScalarProperty Name="StudentRegNo" ColumnName="StudentRegNo" />
                 <ScalarProperty Name="projectId" ColumnName="projectId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StudnetPhoneNumber" ColumnName="StudnetPhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentTbs">
+            <EntityTypeMapping TypeName="GraduateDbModel.StudentTb">
+              <MappingFragment StoreEntitySet="StudentTb">
+                <ScalarProperty Name="StundentRegNo" ColumnName="StundentRegNo" />
+                <ScalarProperty Name="StundentName" ColumnName="StundentName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
