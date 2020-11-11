@@ -15,70 +15,74 @@
 }
 
  
+<div class="jumbotron">
+    @using (Html.BeginForm("search", "RegisterTbs", FormMethod.Post))
+    {
+        @*<p style="width:100px;">
+         </p>*@
+        <h1 class="display-4 text-center">Search</h1>
+        <hr />
+        <br />
 
-@using (Html.BeginForm("search", "RegisterTbs", FormMethod.Post))
-{
-    <p style="width:100px;">
-
-    </p>
-
-    <div class="form-group d-block">
-        @*<label for="exampleInputPassword1">Search</label>*@
-        @Html.TextBox("search1", null, new { @class = "search-box form-control", style = "", placeholder = "ادخل اسم الطالب" })
-    </div>
-
-
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="customRadioInline1" name="searchby" value="StudentName"  checked class="custom-control-input">
-         <label class="custom-control-label" for="customRadioInline1">StudentName</label>
-
-    </div>
-
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="customRadioInline2" name="searchby" value="StudentCode"   class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline2">StudentCode</label>
-
-    </div>
-
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="customRadioInline3" name="searchby" value="ProjectName"   class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline3">ProjectName</label>
-
-    </div>
-
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="customRadioInline4" name="searchby" value="ProjectCode"     class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline4">ProjectCode</label>
-
-    </div>
-
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="customRadioInline5" name="searchby" value="DoctorName"   class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline5">DoctorName</label>
-
-    </div>
-
-    <br />
-    <br />
-
-    <button type="submit" class="btn btn-primary">
-        search
-        <i class="fa fa-search" aria-hidden="true"></i>
-    </button>
-    
-
-    @*<div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="customRadioInline6" name="searchby" value="Date"placeholder="yyyy-mm-dd"   class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline6">Date</label>
-
-    </div>*@
+        <div class="form-group d-block"dir="rtl">
+            @*<label for="exampleInputPassword1">Search</label>*@
+            @Html.TextBox("search1", null, new { @class = "search-box form-control col-12", style = "", placeholder = "ادخل اسم الطالب" })
+        </div>
 
 
 
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline1" name="searchby" value="StudentName" checked class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline1">StudentName</label>
+
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline2" name="searchby" value="StudentCode" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline2">StudentCode</label>
+
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline3" name="searchby" value="ProjectName" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline3">ProjectName</label>
+
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline4" name="searchby" value="ProjectCode" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline4">ProjectCode</label>
+
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline5" name="searchby" value="DoctorName" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline5">DoctorName</label>
+
+        </div>
+
+        <br />
+        <br />
+
+        <button type="submit" class="btn btn-primary">
+            search
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+
+
+        @*<div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline6" name="searchby" value="Date"placeholder="yyyy-mm-dd"   class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline6">Date</label>
+
+            </div>*@
 
 
 
-}
+
+
+
+    }
+</div>
 
 
 @*@Html.TextBox("search1", null, new { @class = "search-box form-control", style = "", placeholder = "ادخل اسم الطالب" })
@@ -127,7 +131,7 @@
                 </th>
 
                 <th>
-                    @Html.DisplayNameFor(model => model.Description)
+                    @Html.DisplayNameFor(model => model.StudnetPhoneNumber)
                 </th>
                 <th></th>
             </tr>
@@ -156,7 +160,7 @@
                         @Html.DisplayFor(model => item  .ProjectTb.DoctorTb.DoctorName)
                     </th>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Description)
+                        @Html.DisplayFor(modelItem => item.StudnetPhoneNumber)
                     </td>
 
                     <td class="col-4  col-sm-2">
@@ -179,7 +183,7 @@
 </div>
 
 
-@Html.PagedListPager((IPagedList)Model, a => Url.Action("index", new { Page = a }), PagedListRenderOptions.MinimalWithPageCountText)
+@Html.PagedListPager((IPagedList)Model, a => Url.Action("index", new { Page = a }), PagedListRenderOptions.ClassicPlusFirstAndLast)
 <br />
 
 
