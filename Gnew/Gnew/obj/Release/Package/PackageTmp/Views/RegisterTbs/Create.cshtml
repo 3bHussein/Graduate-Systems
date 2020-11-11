@@ -1,102 +1,213 @@
 ﻿@model Gnew.Models.RegisterTb
 
-@{
-    ViewBag.Title = "Create";
-}
+@{ ViewBag.Title = "Create"; }
 
-<h2>Create</h2>
-
+@*<h2>Create</h2>*@
+<br />
 @section style{
- 
+
     <link href="~/Content/jquery-ui.css" rel="stylesheet" />
     <link href="~/Content/datepicker.css" rel="stylesheet" />
 
 
 }
 
+@*<section class="contact-from pt-4">
+        <div class="container">
+
+            <div class="row mt-5">
+                <div class="col-md-7 mx-auto">
+                    <div class="form-wrapper">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Registration form</h4>
+                            </div>
+                        </div>
+                        <form _lpchecked="1">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="First name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Last name">
+                                    </div>
+                                </div>
+
+
+                             </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>*@
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
+@Html.AntiForgeryToken()
+<div class="card" >
+    <div class="card-header">
+        <strong>Register</strong>
+        <div class="form-horizontal">
+            @*<h4>RegisterTb</h4>*@
+            <hr />
+            <div class="row">
 
-    <div class="form-horizontal">
-        <h4>RegisterTb</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.DateReg, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.DateReg, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <label class="control-label col-md-2">Date</label>
+
+                        <div class="col-md-10">
 
 
-                @Html.EditorFor(model => model.DateReg, new { htmlAttributes = new { @class = "form-control", placeholder = " yyyy-mm-dd" } })
-                @Html.ValidationMessageFor(model => model.DateReg, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.DateReg, new { htmlAttributes = new { @class = "form-control", placeholder = " yyyy-mm-dd" } })
+                            @Html.ValidationMessageFor(model => model.DateReg, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StudentName, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.StudentName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.StudentName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.StudentRegNo, htmlAttributes: new { @class = "control-label col-md-4" })*@
+                        <label class="control-label col-md-4">SeatNumber</label>
+
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.StudentRegNo, new { htmlAttributes = new { @class = "form-control", min = "0" } })
+                            @Html.ValidationMessageFor(model => model.StudentRegNo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.StudentRegNo, htmlAttributes: new { @class = "control-label col-md-4" })*@
+                        <label class="control-label col-md-4"><strong>Phone</strong>Number</label>
+
+                        <div class="col-md-10">
+                            @*@Html.EditorFor(model => model.StudnetPhoneNumber, new { htmlAttributes = new { @class = "form-control", min = "0" } })*@
+                            <input type="number" min="0" name="StudnetPhoneNumber" id="StudnetPhoneNumber" class="form-control" />
+                            @Html.ValidationMessageFor(model => model.StudnetPhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.projectId, "projectId", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <label class="control-label col-md-4">ProjectCode</label>
+
+                        <div class="col-md-10">
+                            @Html.DropDownList("projectId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.projectId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col ">
+                            @Html.TextArea("Description", null, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+
+                        <div>
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.StudentName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.StudentName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.StudentName, "", new { @class = "text-danger" })
-            </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.StudentRegNo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.StudentRegNo, new { htmlAttributes = new { @class = "form-control", min = "0" } })
-                @Html.ValidationMessageFor(model => model.StudentRegNo, "", new { @class = "text-danger" })
-            </div>
         </div>
+     }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.projectId, "projectId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("projectId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.projectId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextArea("Description", null, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    @*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
 
 
-@section Scripts{
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script type="text/javascript">
+    @section Scripts{
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        <script type="text/javascript">
 
+            // $(function () {
+            //    $("#DateReg").datepicker
+            //        ({
+            //            dateFormat: 'yy-mm-dd',
+            //            timeFormat:  "hh:mm:ss",
+            //            showStatus: true,
+            //            showWeeks: true,
+            //            highlightWeek: true,
+            //            numberOfMonths: 1,
+            //            showAnim: "clip",
+            //            //showAnim: "fold",
+            //            showOptions: {
+            //                origin: ["top", "left"]
+            //            }
+            //        });
+            //});
 
-        $(function () {
-            $("#DateReg").datepicker
-                ({
+            $(function () {
+                $('#DateReg').datepicker({
                     dateFormat: 'yy-mm-dd',
-                    showStatus: true,
-                    showWeeks: true,
-                    highlightWeek: true,
-                    numberOfMonths: 1,
-                    showAnim: "clip",
-                    //showAnim: "fold",
-                    showOptions: {
-                        origin: ["top", "left"]
+                    onSelect: function (datetext) {
+                        var d = new Date(); // for now
+
+                        var h = d.getHours();
+                        h = (h < 10) ? ("0" + h) : h;
+
+                        var m = d.getMinutes();
+                        m = (m < 10) ? ("0" + m) : m;
+
+                        var s = d.getSeconds();
+                        s = (s < 10) ? ("0" + s) : s;
+
+                        datetext += " " + h + ":" + m + ":" + s;
+
+                        $('#DateReg').val(datetext);
                     }
                 });
-        });
-    </script>
-}
+            });
+        </script>
+    }

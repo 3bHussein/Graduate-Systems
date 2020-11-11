@@ -346,8 +346,6 @@ D:\Programming\RealWorkShop\Graduate Systems From github 25-07-2020\Gnew\Gnew\ob
 D:\Programming\RealWorkShop\Graduate Systems From github 25-07-2020\Gnew\Gnew\obj\Debug\Gnew.csproj.CopyComplete
 D:\Programming\RealWorkShop\Graduate Systems From github 25-07-2020\Gnew\Gnew\obj\Debug\Gnew.dll
 D:\Programming\RealWorkShop\Graduate Systems From github 25-07-2020\Gnew\Gnew\obj\Debug\Gnew.pdb
-D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\RdlCompile.cache
-D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\RdlCompile.compiled
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\bin\Gnew.dll.config
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\bin\Gnew.dll
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\bin\Gnew.pdb
@@ -459,6 +457,8 @@ D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\bin\Microsoft.Owin.Security.Twitte
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.csprojResolveAssemblyReference.cache
+D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\RdlCompile.cache
+D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\RdlCompile.compiled
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.dll
 D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.pdb
+D:\Hussein\Project\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.csprojResolveAssemblyReference.cache

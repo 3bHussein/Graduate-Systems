@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Gnew.Models.StudentTb>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="table-responsive ">
+
+    <table class="table table-bordered  table-hover rounded-circle">
+        <thead class="bg-warning">
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StundentRegNo)
+                </th>
+
+
+                <th>
+                    @Html.DisplayNameFor(model => model.StundentName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StundentRegNo)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.StundentName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.StundentRegNo }) |
+            @Html.ActionLink("Details", "Details", new { id = item.StundentRegNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.StundentRegNo })
+        </td>
+    </tr>
+        }
+
+    </table>
+    </div>

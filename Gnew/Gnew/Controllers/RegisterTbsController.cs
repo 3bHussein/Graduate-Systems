@@ -15,7 +15,7 @@ using System.IO;
 
 namespace Graduate_Systems.Controllers
 {
-    //[Authorize]
+    [Authorize]
 
     public class RegisterTbsController : Controller
     {
@@ -25,7 +25,7 @@ namespace Graduate_Systems.Controllers
         public ActionResult Index(int page=1)
         {
             var registerTbs = db.RegisterTbs.Include(r => r.ProjectTb);
-            return View(registerTbs.ToList().OrderByDescending(a => a.id).ToPagedList(page, 5));
+            return View(registerTbs.ToList().OrderByDescending(a => a.id).ToPagedList(page, 8));
 
             //return PartialView("_Register", registerTbs);
 
