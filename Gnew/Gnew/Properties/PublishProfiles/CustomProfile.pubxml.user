@@ -19,7 +19,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="bin/Gnew.dll">
-      <publishTime>11/11/2020 15:11:49</publishTime>
+      <publishTime>11/12/2020 12:18:41</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -287,6 +287,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Content/datepicker.css">
       <publishTime>07/24/2020 21:57:54</publishTime>
+    </File>
+    <File Include="Content/img/database-error.jpg">
+      <publishTime>11/12/2020 11:18:07</publishTime>
     </File>
     <File Include="Content/img/iconfinder_Task_Manager_100296.png">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -607,7 +610,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/24/2020 21:57:54</publishTime>
+      <publishTime>11/12/2020 10:27:35</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -655,7 +658,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Edit.cshtml">
-      <publishTime>07/24/2020 21:57:54</publishTime>
+      <publishTime>11/12/2020 11:20:10</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Index.cshtml">
       <publishTime>11/11/2020 14:45:29</publishTime>
@@ -667,7 +670,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/01/2020 08:43:53</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>11/11/2020 15:10:06</publishTime>
+      <publishTime>11/12/2020 11:14:12</publishTime>
+    </File>
+    <File Include="Views/Shared/Error1.cshtml">
+      <publishTime>11/12/2020 12:18:20</publishTime>
     </File>
     <File Include="Views/Shared/Lockout.cshtml">
       <publishTime>07/24/2020 21:57:54</publishTime>

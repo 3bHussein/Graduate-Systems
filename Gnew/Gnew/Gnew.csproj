@@ -264,6 +264,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\datepicker.css" />
+    <Content Include="Content\img\database-error.jpg" />
     <Content Include="Content\img\iconfinder_Task_Manager_100296.png" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\PagedList.css" />
@@ -439,6 +440,7 @@
     <Content Include="Views\StudentTbs\Details.cshtml" />
     <Content Include="Views\StudentTbs\Edit.cshtml" />
     <Content Include="Views\StudentTbs\Index.cshtml" />
+    <Content Include="Views\Shared\Error1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

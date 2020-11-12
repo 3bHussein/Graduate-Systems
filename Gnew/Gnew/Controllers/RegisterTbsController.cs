@@ -173,7 +173,7 @@ namespace Graduate_Systems.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "ProjectName", registerTb.projectId);
+            ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "Projectcode", registerTb.projectId);
             return View(registerTb);
         }
 
@@ -189,7 +189,7 @@ namespace Graduate_Systems.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "ProjectName", registerTb.projectId);
+            ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "Projectcode", registerTb.projectId);
             return View(registerTb);
         }
 
@@ -198,16 +198,25 @@ namespace Graduate_Systems.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,DateReg,StudentName,StudentRegNo,projectId,Description")] RegisterTb registerTb)
+        public ActionResult Edit([Bind(Include = "id,DateReg,StudentName,StudentRegNo,projectId,Description,StudnetPhoneNumber")] RegisterTb registerTb)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(registerTb).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(registerTb).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "ProjectName", registerTb.projectId);
+                return View(registerTb);
+
             }
-            ViewBag.projectId = new SelectList(db.ProjectTbs, "projectId", "ProjectName", registerTb.projectId);
-            return View(registerTb);
+            catch (DataException e)
+            {
+
+                return View("Error1");
+            }
         }
 
         // GET: RegisterTbs/Delete/5

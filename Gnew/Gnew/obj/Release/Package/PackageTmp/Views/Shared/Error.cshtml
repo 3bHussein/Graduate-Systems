@@ -3,10 +3,26 @@
 @{
     ViewBag.Title = "Error";
 }
-<div class="container">
-    <h1 class="text-danger">Error.</h1>
-    <h2 class="text-danger">An error occurred while processing your request.</h2>
-    <div>
-        @Html.ActionLink("Back to List", "Index")
+<br />
+
+<div class="container text-center">
+    <div class="jumbotron">
+
+    @*<h1 class="text-danger">Error.</h1>
+    <h2 class="text-danger">An error occurred while processing your request.</h2>*@
+
+
+        <h1 class="text-danger">حدث خطأ </h1>
+        @*<h3 class="text-danger">برجاء التاكد من صحة البيانات الخاصة بالطالب واعادة التسجيل </h3>*@
+        <br />
+        <div>
+            @*@Html.ActionLink("اضافة طالب من جديد", "Create", null, new { @class = "btn btn-info" })*@
+            @Html.ActionLink("الرجوع الي القائمة الرئيسية", "index","Home", null, new { @class = "btn btn-danger" })
+
+
+
+
+        </div>
+
     </div>
 </div>
