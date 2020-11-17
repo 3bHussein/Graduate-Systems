@@ -36,7 +36,7 @@
     </Key>
     <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="AspNetRole" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetUserRoles" ToRole="AspNetRoles" />
     <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUserRoles" ToRole="AspNetUsers" />
   </EntityType>
@@ -67,7 +67,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DoctorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Maximum_of_Reg" Type="Int32" />
+    <Property Name="Maximum_of_Reg" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ProjectTbs" Relationship="Self.FK_ProjectTb_DoctorTb" FromRole="DoctorTb" ToRole="ProjectTb" />
   </EntityType>
   <EntityType Name="ProjectTb">

@@ -19,12 +19,12 @@
     @using (Html.BeginForm("search", "RegisterTbs", FormMethod.Post))
     {
         @*<p style="width:100px;">
-         </p>*@
+            </p>*@
         <h1 class="display-4 text-center">Search</h1>
         <hr />
         <br />
 
-        <div class="form-group d-block"dir="rtl">
+        <div class="form-group d-block" dir="rtl">
             @*<label for="exampleInputPassword1">Search</label>*@
             @Html.TextBox("search1", null, new { @class = "search-box form-control col-12", style = "", placeholder = "ادخل اسم الطالب" })
         </div>
@@ -60,28 +60,34 @@
             <label class="custom-control-label" for="customRadioInline5">DoctorName</label>
 
         </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline6" name="searchby" value="StudnetPhoneNumber" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline6">StudnetPhoneNumber</label>
 
-        <br />
-        <br />
-
-        <button type="submit" class="btn btn-primary">
-            search
-            <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
+        </div>
 
 
-        @*<div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline6" name="searchby" value="Date"placeholder="yyyy-mm-dd"   class="custom-control-input">
-                <label class="custom-control-label" for="customRadioInline6">Date</label>
+                        <br />
+                        <br />
 
-            </div>*@
-
-
-
-
+                        <button type="submit" class="btn btn-primary">
+                            search
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
 
 
-    }
+                        @*<div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadioInline6" name="searchby" value="Date"placeholder="yyyy-mm-dd"   class="custom-control-input">
+                                <label class="custom-control-label" for="customRadioInline6">Date</label>
+
+                            </div>*@
+
+
+
+
+
+
+                    }
 </div>
 
 

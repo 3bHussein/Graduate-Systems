@@ -16,12 +16,17 @@ namespace Gnew.Models
     public partial class RegisterTb
     {
         public int id { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy hh:mm:ss tt}", ApplyFormatInEditMode = true)]
+        [Required]
+
         public Nullable<System.DateTime> DateReg { get; set; }
+        [Required]
         public string StudentName { get; set; }
+        [Required]
+
         public int StudentRegNo { get; set; }
         public Nullable<int> projectId { get; set; }
         public string Description { get; set; }
+        [Required]
         public string StudnetPhoneNumber { get; set; }
     
         public virtual ProjectTb ProjectTb { get; set; }

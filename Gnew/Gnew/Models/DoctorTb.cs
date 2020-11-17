@@ -23,7 +23,7 @@ namespace Gnew.Models
         public int id { get; set; }
         public string DoctorName { get; set; }
         public string Description { get; set; }
-        public Nullable<int> Maximum_of_Reg { get; set; }
+        public int Maximum_of_Reg { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProjectTb> ProjectTbs { get; set; }
