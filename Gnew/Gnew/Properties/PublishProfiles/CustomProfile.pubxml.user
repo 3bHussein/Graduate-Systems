@@ -19,7 +19,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="bin/Gnew.dll">
-      <publishTime>11/12/2020 12:18:41</publishTime>
+      <publishTime>11/18/2020 14:23:50</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -477,6 +477,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/bootstrap.min.js">
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
+    <File Include="Scripts/canvasjs.min.js">
+      <publishTime>10/16/2020 07:22:06</publishTime>
+    </File>
     <File Include="Scripts/jquery-3.3.1.js">
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
@@ -538,7 +541,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>07/24/2020 21:57:54</publishTime>
+      <publishTime>11/18/2020 13:03:32</publishTime>
     </File>
     <File Include="Views/Account/Register.cshtml">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -573,20 +576,50 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/AspNetRoles/Index.cshtml">
       <publishTime>07/26/2020 13:41:18</publishTime>
     </File>
+    <File Include="Views/AspNetRoles1/Create.cshtml">
+      <publishTime>11/18/2020 12:10:12</publishTime>
+    </File>
+    <File Include="Views/AspNetRoles1/Delete.cshtml">
+      <publishTime>11/18/2020 12:10:12</publishTime>
+    </File>
+    <File Include="Views/AspNetRoles1/Details.cshtml">
+      <publishTime>11/18/2020 12:10:13</publishTime>
+    </File>
+    <File Include="Views/AspNetRoles1/Edit.cshtml">
+      <publishTime>11/18/2020 12:10:13</publishTime>
+    </File>
+    <File Include="Views/AspNetRoles1/Index.cshtml">
+      <publishTime>11/18/2020 12:10:13</publishTime>
+    </File>
     <File Include="Views/AspNetUserRoles/Create.cshtml">
-      <publishTime>07/26/2020 14:10:16</publishTime>
+      <publishTime>11/18/2020 12:12:18</publishTime>
     </File>
     <File Include="Views/AspNetUserRoles/Delete.cshtml">
-      <publishTime>07/26/2020 14:10:16</publishTime>
+      <publishTime>11/18/2020 12:12:19</publishTime>
     </File>
     <File Include="Views/AspNetUserRoles/Details.cshtml">
-      <publishTime>07/26/2020 14:10:17</publishTime>
+      <publishTime>11/18/2020 12:12:19</publishTime>
     </File>
     <File Include="Views/AspNetUserRoles/Edit.cshtml">
-      <publishTime>07/26/2020 14:10:17</publishTime>
+      <publishTime>11/18/2020 12:12:19</publishTime>
     </File>
     <File Include="Views/AspNetUserRoles/Index.cshtml">
-      <publishTime>07/26/2020 14:10:17</publishTime>
+      <publishTime>11/18/2020 12:12:19</publishTime>
+    </File>
+    <File Include="Views/AspNetUsers/Create.cshtml">
+      <publishTime>11/18/2020 12:16:48</publishTime>
+    </File>
+    <File Include="Views/AspNetUsers/Delete.cshtml">
+      <publishTime>11/18/2020 12:16:48</publishTime>
+    </File>
+    <File Include="Views/AspNetUsers/Details.cshtml">
+      <publishTime>11/18/2020 12:16:49</publishTime>
+    </File>
+    <File Include="Views/AspNetUsers/Edit.cshtml">
+      <publishTime>11/18/2020 12:16:49</publishTime>
+    </File>
+    <File Include="Views/AspNetUsers/Index.cshtml">
+      <publishTime>11/18/2020 12:28:03</publishTime>
     </File>
     <File Include="Views/DoctorTbs/Create.cshtml">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -601,7 +634,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="Views/DoctorTbs/Index.cshtml">
-      <publishTime>07/24/2020 21:57:54</publishTime>
+      <publishTime>11/18/2020 09:26:21</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>11/01/2020 08:43:53</publishTime>
@@ -610,7 +643,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/12/2020 10:27:35</publishTime>
+      <publishTime>11/18/2020 14:23:34</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -643,10 +676,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="Views/ProjectTbs/Index.cshtml">
-      <publishTime>07/24/2020 21:57:54</publishTime>
+      <publishTime>11/18/2020 09:25:35</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Create.cshtml">
-      <publishTime>11/01/2020 08:43:53</publishTime>
+      <publishTime>11/18/2020 08:45:26</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Create1.cshtml">
       <publishTime>11/01/2020 08:43:53</publishTime>
@@ -661,13 +694,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/12/2020 11:20:10</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Index.cshtml">
-      <publishTime>11/11/2020 14:45:29</publishTime>
+      <publishTime>11/18/2020 13:09:45</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Search.cshtml">
-      <publishTime>11/01/2020 08:43:53</publishTime>
+      <publishTime>11/18/2020 08:45:26</publishTime>
     </File>
     <File Include="Views/RegisterTbs/SearchbyDoc.cshtml">
-      <publishTime>11/01/2020 08:43:53</publishTime>
+      <publishTime>11/18/2020 11:45:31</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>11/12/2020 11:14:12</publishTime>
@@ -682,7 +715,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/01/2020 08:43:53</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>07/24/2020 21:57:54</publishTime>
+      <publishTime>11/18/2020 11:59:04</publishTime>
     </File>
     <File Include="Views/Shared/_Register.cshtml">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -709,7 +742,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/11/2020 15:11:49</publishTime>
+      <publishTime>11/18/2020 09:16:46</publishTime>
     </File>
   </ItemGroup>
 </Project>

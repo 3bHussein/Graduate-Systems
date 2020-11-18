@@ -1,145 +1,110 @@
 ﻿@model IEnumerable<Gnew.Models.RegisterTb>
 
-@{
-    ViewBag.Title = "search";
+@{ ViewBag.Title = "search"; }
+
+
+
+
+
+
+@using PagedList;
+@using PagedList.Mvc;
+
+@section style{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+
+
 }
-<div class="container">
-    <br />
 
-    <div class="text-center jumbotron">
+<div class="jumbotron">
+    @using (Html.BeginForm("search", "RegisterTbs", FormMethod.Post))
+    {
+        @*<p style="width:100px;">
+            </p>*@
+        <h1 class="display-4 text-center">Search</h1>
+        <hr />
+        <br />
 
-        <h2>search  </h2>
-    </div>
+        <div class="form-group d-block" dir="rtl">
+            @*<label for="exampleInputPassword1">Search</label>*@
+            @Html.TextBox("search1", null, new { @class = "search-box form-control col-12", style = "", placeholder = "ادخل اسم الطالب" })
+        </div>
 
-    <div>
-        @using (Html.BeginForm("search", "RegisterTbs", FormMethod.Post))
-        {
-            <div class='container'>
 
-                <p style="width:100px;">
 
-                </p>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline1" name="searchby" value="StudentName" checked class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline1">StudentName</label>
 
-                <div class="form-group d-block">
-                    @Html.TextBox("search1", null, new { @class = "search-box form-control", style = "", placeholder = "ادخل اسم الطالب" })
-                </div>
- 
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline1" name="searchby" value="StudentName" checked class="custom-control-input">
-                    <label class="custom-control-label" for="customRadioInline1">StudentName</label>
+        </div>
 
-                </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline2" name="searchby" value="StudentCode" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline2">StudentCode</label>
 
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline2" name="searchby" value="StudentCode" class="custom-control-input">
-                    <label class="custom-control-label" for="customRadioInline2">StudentCode</label>
+        </div>
 
-                </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline3" name="searchby" value="ProjectName" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline3">ProjectName</label>
 
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline3" name="searchby" value="ProjectName" class="custom-control-input">
-                    <label class="custom-control-label" for="customRadioInline3">ProjectName</label>
+        </div>
 
-                </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline4" name="searchby" value="ProjectCode" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline4">ProjectCode</label>
 
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline4" name="searchby" value="ProjectCode" class="custom-control-input">
-                    <label class="custom-control-label" for="customRadioInline4">ProjectCode</label>
+        </div>
 
-                </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline5" name="searchby" value="DoctorName" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline5">DoctorName</label>
 
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline5" name="searchby" value="DoctorName" class="custom-control-input">
-                    <label class="custom-control-label" for="customRadioInline5">DoctorName</label>
+        </div>
 
-                </div>
-                <br />
-                <br />
-                <button type="submit" class="btn btn-primary">
-                    search
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-                 |
-                 <a href="~/RegisterTbs/index" class="btn btn-info">back</a>
+                
+           <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline6" name="searchby" value="StudnetPhoneNumber" class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline6">StudnetPhoneNumber</label>
 
-                <br />
-                <br />
- 
-                @*@Html.ActionLink("PDF", "Report", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
-                @Html.ActionLink("Excel", "Report", new { id = "Excel" }, new { @class = "btn btn-success" }) |
-                @Html.ActionLink("Word", "Report", new { id = "Word" }, new { @class = "btn btn-primary" })*@
-
-                @*<br />
-                <br />*@
+        </div>
 
 
 
 
+        <br />
+        <br />
+
+        <button type="submit" class="btn btn-primary">
+            search
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+    
+ <a href = "/RegisterTbs/index" class="btn btn-info">back</a>
+
+
+        @*<div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline6" name="searchby" value="Date"placeholder="yyyy-mm-dd"   class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline6">Date</label>
+
+            </div>*@
 
 
 
 
 
-                @*<table class="table " id="deviceTable">
-                    <tr>
-                        <td colspan="4">
-                            <span id="deviceCheckboxes" class="input-group-addon">
-                                <input type="radio" name="searchby" value="StudentName" checked>StudentName
-                            </span>
-                        </td>
-                        <td colspan="4">
 
-                            <span id="deviceCheckboxes" class="input-group-addon">
-                                <input type="radio" name="searchby" value="StudentCode">StudentCode
-                            </span>
-                        </td>
-                        <td colspan="4">
-
-                            <span id="deviceCheckboxes" class="input-group-addon">
-                                <input type="radio" name="searchby" value="ProjectName">ProjectName
-                            </span>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td colspan="4">
-                            <span id="deviceCheckboxes" class="input-group-addon">
-                                <input type="radio" name="searchby" value="ProjectCode">ProjectCode
-                            </span>
-                        </td>
-                        <td colspan="4">
-
-                            <span id="deviceCheckboxes" class="input-group-addon">
-                                <input type="radio" name="searchby" value="DoctorName">DoctorName
-                            </span>
-                        </td>
-
-                        <td colspan="4">
-
-                            <span id="deviceCheckboxes" class="input-group-addon">
-                                <input type="radio" name="searchby" value="Date">Date
-                            </span>
-                        </td>
-
-
-                    </tr>
-                </table>*@
-            </div>
-        }
-    </div>
-
-
-
-
+    }
 </div>
+@*|
+    <a href="~/RegisterTbs/index" class="btn btn-info">back</a>*@
 
 <div class="table-responsive">
     <table class="table table-bordered  table-hover rounded-circle">
         <thead class="bg-info">
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.DateReg)
-                </th>
+
                 <th>
                     @Html.DisplayNameFor(model => model.StudentName)
                 </th>
@@ -156,46 +121,57 @@
                     @Html.DisplayNameFor(model => model.ProjectTb.DoctorTb.DoctorName)
                 </th>
 
+                <th>
+                    @Html.DisplayNameFor(model => model.StudnetPhoneNumber)
+                </th>
 
-                 <th></th>
+
+                <th></th>
             </tr>
         </thead>
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateReg)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StudentName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StudentRegNo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProjectTb.ProjectName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelite => item.ProjectTb.Projectcode)
-                </td>
-                <th>
-                    @Html.DisplayFor(model => item.ProjectTb.DoctorTb.DoctorName)
-                </th>
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentRegNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectTb.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelite => item.ProjectTb.Projectcode)
+        </td>
+        <th>
+            @Html.DisplayFor(model => item.ProjectTb.DoctorTb.DoctorName)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudnetPhoneNumber)
+        </td>
 
 
-                 <td class="col-4  col-sm-2">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })|
-                    @Html.ActionLink("Export", "Reportbyst", new { id = item.id }, new { @class = "btn btn-danger" })
+
+        <td class="col-6  col-sm-3">
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" }) |
+            @if (User.IsInRole("owner"))
+            {
+    @: | @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+
+                    }
+
+            @Html.ActionLink("Export", "Reportbyst", new { id = item.id }, new { @class = "btn btn-danger" })
 
 
-                </td>
-            </tr>
-        }
+        </td>
+    </tr>}
 
     </table>
 </div>
 
 
+@*@Html.PagedListPager((IPagedList)Model, a => Url.Action("Search", new { page = a }), PagedListRenderOptions.ClassicPlusFirstAndLast)*@

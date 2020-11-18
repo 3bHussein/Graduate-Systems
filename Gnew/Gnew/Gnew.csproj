@@ -189,7 +189,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AspNetRolesController.cs" />
-    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\AspNetUserRolesController.cs" />
+    <Compile Include="Controllers\AspNetUsersController.cs" />
     <Compile Include="Controllers\DoctorTbsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -442,6 +443,16 @@
     <Content Include="Views\StudentTbs\Edit.cshtml" />
     <Content Include="Views\StudentTbs\Index.cshtml" />
     <Content Include="Views\Shared\Error1.cshtml" />
+    <Content Include="Views\AspNetRoles1\Create.cshtml" />
+    <Content Include="Views\AspNetRoles1\Delete.cshtml" />
+    <Content Include="Views\AspNetRoles1\Details.cshtml" />
+    <Content Include="Views\AspNetRoles1\Edit.cshtml" />
+    <Content Include="Views\AspNetRoles1\Index.cshtml" />
+    <Content Include="Views\AspNetUsers\Create.cshtml" />
+    <Content Include="Views\AspNetUsers\Delete.cshtml" />
+    <Content Include="Views\AspNetUsers\Details.cshtml" />
+    <Content Include="Views\AspNetUsers\Edit.cshtml" />
+    <Content Include="Views\AspNetUsers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

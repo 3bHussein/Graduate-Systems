@@ -23,10 +23,21 @@ namespace Gnew.Controllers
             var QSCount2 = (from emp in db.RegisterTbs
                            select emp).Count();
 
+
+            var kh1 = (from emp in db.RegisterTbs
+                            select emp).Where(a => a.ProjectTb.Projectcode== "KH1").Count();
+            var kh2 = (from emp in db.RegisterTbs
+                       select emp).Where(a => a.ProjectTb.Projectcode == "KH2").Count();
+            var kh0 = kh1 + kh2;
+
+
+
             ViewBag.Doc = QSCount;
             ViewBag.Pro = QSCount1;
             ViewBag.Reg = QSCount2;
-
+            ViewBag.kh1 = kh1;
+            ViewBag.kh2 = kh2;
+            ViewBag.kh0 = kh0;
             return View();
         }
 

@@ -10,116 +10,107 @@ using Gnew.Models;
 
 namespace Gnew.Controllers
 {
-    public class RolesController : Controller
+    public class AspNetUsersController : Controller
     {
         private GraduateDbEntities db = new GraduateDbEntities();
 
-        // GET: AspNetUserRoles
+        // GET: AspNetUsers
         public ActionResult Index()
         {
-            var aspNetUserRoles = db.AspNetUserRoles.Include(a => a.AspNetRole).Include(a => a.AspNetUser);
-            return View(aspNetUserRoles.ToList());
+            return View(db.AspNetUsers.ToList());
         }
 
-        // GET: AspNetUserRoles/Details/5
+        // GET: AspNetUsers/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AspNetUserRole aspNetUserRole = db.AspNetUserRoles.Find(id);
-            if (aspNetUserRole == null)
+            AspNetUser aspNetUser = db.AspNetUsers.Find(id);
+            if (aspNetUser == null)
             {
                 return HttpNotFound();
             }
-            return View(aspNetUserRole);
+            return View(aspNetUser);
         }
 
-        // GET: AspNetUserRoles/Create
+        // GET: AspNetUsers/Create
         public ActionResult Create()
         {
-            ViewBag.RoleId = new SelectList(db.AspNetRoles, "Id", "Name");
-            ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
-        // POST: AspNetUserRoles/Create
+        // POST: AspNetUsers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,RoleId,Description")] AspNetUserRole aspNetUserRole)
+        public ActionResult Create([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AspNetUser aspNetUser)
         {
             if (ModelState.IsValid)
             {
-                db.AspNetUserRoles.Add(aspNetUserRole);
+                db.AspNetUsers.Add(aspNetUser);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RoleId = new SelectList(db.AspNetRoles, "Id", "Name", aspNetUserRole.RoleId);
-            ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email", aspNetUserRole.UserId);
-            return View(aspNetUserRole);
+            return View(aspNetUser);
         }
 
-        // GET: AspNetUserRoles/Edit/5
+        // GET: AspNetUsers/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AspNetUserRole aspNetUserRole = db.AspNetUserRoles.Find(id);
-            if (aspNetUserRole == null)
+            AspNetUser aspNetUser = db.AspNetUsers.Find(id);
+            if (aspNetUser == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.RoleId = new SelectList(db.AspNetRoles, "Id", "Name", aspNetUserRole.RoleId);
-            ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email", aspNetUserRole.UserId);
-            return View(aspNetUserRole);
+            return View(aspNetUser);
         }
 
-        // POST: AspNetUserRoles/Edit/5
+        // POST: AspNetUsers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,RoleId,Description")] AspNetUserRole aspNetUserRole)
+        public ActionResult Edit([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AspNetUser aspNetUser)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(aspNetUserRole).State = EntityState.Modified;
+                db.Entry(aspNetUser).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.RoleId = new SelectList(db.AspNetRoles, "Id", "Name", aspNetUserRole.RoleId);
-            ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email", aspNetUserRole.UserId);
-            return View(aspNetUserRole);
+            return View(aspNetUser);
         }
 
-        // GET: AspNetUserRoles/Delete/5
+        // GET: AspNetUsers/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AspNetUserRole aspNetUserRole = db.AspNetUserRoles.Find(id);
-            if (aspNetUserRole == null)
+            AspNetUser aspNetUser = db.AspNetUsers.Find(id);
+            if (aspNetUser == null)
             {
                 return HttpNotFound();
             }
-            return View(aspNetUserRole);
+            return View(aspNetUser);
         }
 
-        // POST: AspNetUserRoles/Delete/5
+        // POST: AspNetUsers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            AspNetUserRole aspNetUserRole = db.AspNetUserRoles.Find(id);
-            db.AspNetUserRoles.Remove(aspNetUserRole);
+            AspNetUser aspNetUser = db.AspNetUsers.Find(id);
+            db.AspNetUsers.Remove(aspNetUser);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

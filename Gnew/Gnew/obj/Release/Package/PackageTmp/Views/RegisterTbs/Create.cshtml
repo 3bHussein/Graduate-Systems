@@ -62,7 +62,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         @*@Html.LabelFor(model => model.DateReg, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        <label class="control-label col-md-2">Date</label>
+                        <label class="control-label col-md-3">Date</label>
 
                         <div class="col-md-10">
 
@@ -82,6 +82,7 @@
                     </div>
                 </div>
             </div>
+            <br />
             <div class="row">
 
                 <div class="col-md-6">
@@ -103,7 +104,9 @@
 
                         <div class="col-md-10">
                             @*@Html.EditorFor(model => model.StudnetPhoneNumber, new { htmlAttributes = new { @class = "form-control", min = "0" } })*@
-                            <input type="number" min="0" name="StudnetPhoneNumber" id="StudnetPhoneNumber" class="form-control" />
+                            @*<input type="number" min="0" name="StudnetPhoneNumber" id="StudnetPhoneNumber" class="form-control" />*@
+                            @Html.EditorFor(model => model.StudnetPhoneNumber, new { htmlAttributes = new { @class = "form-control", min = "0" ,type="number"} })
+
                             @Html.ValidationMessageFor(model => model.StudnetPhoneNumber, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -209,5 +212,38 @@
                     }
                 });
             });
+            //$("#StudentRegNo").keypress(function (e) {
+            //    var code = e.which || e.keyCode;
+            //    // 65 - 90 for A-Z and 97 - 122 for a-z 95 for _ 45 for - 46 for .
+            //    if (!((code >= 65 && code <= 90) || (code >= 97 && code <= 122) || code == 95 || code == 46 || code == 45)) {
+            //        var text = $("#StudentRegNo").val();
+            //        text = text.substring(0, text.length);
+            //        $("#StudentRegNo").val(text);
+            //    }
+            //});
+
+ 
+
+            $(function () {
+                $("input[name='StudentRegNo']").on('input', function (e) {
+                    $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                });
+            });
+
+
+
+            $(function () {
+                $("input[name='StudnetPhoneNumber']").on('input', function (e) {
+                    $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                });
+            }); 
+
+ 
+
+           
+
+
+
+
         </script>
     }

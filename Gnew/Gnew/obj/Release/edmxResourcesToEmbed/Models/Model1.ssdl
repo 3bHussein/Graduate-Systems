@@ -33,7 +33,7 @@
     </Key>
     <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="AspNetUsers">
     <Key>
@@ -59,7 +59,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DoctorName" Type="nvarchar" MaxLength="100" />
     <Property Name="Description" Type="nvarchar(max)" />
-    <Property Name="Maximum of Reg" Type="int" />
+    <Property Name="Maximum of Reg" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProjectTb">
     <Key>
