@@ -69,6 +69,70 @@ namespace Gnew.Controllers
             var mo0 = mo1 + mo2;
 
 
+            var mh1 = (from emp in db.RegisterTbs
+                       select emp).Where(a => a.ProjectTb.Projectcode == "mh1").Count();
+            var mh2 = (from emp in db.RegisterTbs
+                       select emp).Where(a => a.ProjectTb.Projectcode == "mh2").Count();
+            var mh0 = mh1 + mh2;
+
+            var j1 = (from emp in db.RegisterTbs
+                       select emp).Where(a => a.ProjectTb.Projectcode == "j1").Count();
+            var j2 = (from emp in db.RegisterTbs
+                       select emp).Where(a => a.ProjectTb.Projectcode == "j2").Count();
+            var j0 = j1 + j2;
+
+            var m1 = (from emp in db.RegisterTbs
+                       select emp).Where(a => a.ProjectTb.Projectcode == "m1").Count();
+            var m2 = (from emp in db.RegisterTbs
+                       select emp).Where(a => a.ProjectTb.Projectcode == "m2").Count();
+            var m0 = m1 + m2;
+
+            var h1 = (from emp in db.RegisterTbs
+                      select emp).Where(a => a.ProjectTb.Projectcode == "h1").Count();
+            var h2 = (from emp in db.RegisterTbs
+                      select emp).Where(a => a.ProjectTb.Projectcode == "h2").Count();
+            var h0 = h1 + h2;
+
+
+
+            var ad1 = (from emp in db.RegisterTbs
+                      select emp).Where(a => a.ProjectTb.Projectcode == "ad1").Count();
+            var ad2 = (from emp in db.RegisterTbs
+                      select emp).Where(a => a.ProjectTb.Projectcode == "ad2").Count();
+            var ad0 = ad1 + ad2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             ViewBag.Doc = QSCount;
             ViewBag.Pro = QSCount1;
             ViewBag.Reg = QSCount2;
@@ -100,6 +164,28 @@ namespace Gnew.Controllers
             ViewBag.mo1 = mo1;
             ViewBag.mo2 = mo2;
             ViewBag.mo0 = mo0;
+
+
+            ViewBag.mh1 = mh1;
+            ViewBag.mh2 = mh2;
+            ViewBag.mh0 = mh0;
+
+            ViewBag.j1 = j1;
+            ViewBag.j2 = j2;
+            ViewBag.j0 = j0;
+
+            ViewBag.m1 = m1;
+            ViewBag.m2 = m2;
+            ViewBag.m0 = m0;
+
+
+            ViewBag.h1 = h1;
+            ViewBag.h2 = h2;
+            ViewBag.h0 = h0;
+
+            ViewBag.ad1 = ad1;
+            ViewBag.ad2 = ad2;
+            ViewBag.ad0 = ad0;
 
 
             return View();

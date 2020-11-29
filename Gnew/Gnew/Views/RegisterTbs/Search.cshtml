@@ -104,7 +104,9 @@
     <table class="table table-bordered  table-hover rounded-circle">
         <thead class="bg-info">
             <tr>
-
+                <th>
+                    @Html.DisplayNameFor(model => model.DateReg)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.StudentName)
                 </th>
@@ -133,7 +135,9 @@
         @foreach (var item in Model)
         {
     <tr>
-
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReg)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.StudentName)
         </td>
