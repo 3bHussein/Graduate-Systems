@@ -19,7 +19,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="bin/Gnew.dll">
-      <publishTime>11/19/2020 14:55:24</publishTime>
+      <publishTime>11/29/2020 14:13:20</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -643,7 +643,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2020 21:57:54</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/19/2020 14:46:57</publishTime>
+      <publishTime>11/29/2020 13:40:17</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>07/24/2020 21:57:54</publishTime>
@@ -700,7 +700,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2020 12:15:37</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Search.cshtml">
-      <publishTime>11/18/2020 08:45:26</publishTime>
+      <publishTime>11/29/2020 12:09:37</publishTime>
     </File>
     <File Include="Views/RegisterTbs/SearchbyDoc.cshtml">
       <publishTime>11/18/2020 11:45:31</publishTime>
