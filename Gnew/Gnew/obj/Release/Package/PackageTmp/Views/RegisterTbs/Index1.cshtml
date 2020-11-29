@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Gnew.Models.RegisterTb>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index1";
 }
 <br />
 @using PagedList;
@@ -14,7 +14,7 @@
 
 }
 
- 
+
 <div class="jumbotron">
     @using (Html.BeginForm("search", "RegisterTbs", FormMethod.Post))
     {
@@ -67,7 +67,7 @@
         </div>
 
 
-                        <br />
+        <br />
                         <br />
 
                         <button type="submit" class="btn btn-primary">
@@ -87,22 +87,22 @@
 
 
 
-                    }
+    }
 </div>
 
 
 @*@Html.TextBox("search1", null, new { @class = "search-box form-control", style = "", placeholder = "ادخل اسم الطالب" })
 
-@Ajax.ActionLink("search1", "all", new AjaxOptions()
-        {
-    HttpMethod = "GET",
-    UpdateTargetId = "diva",
-    InsertionMode = InsertionMode.Replace
-            }
-    )
- 
+    @Ajax.ActionLink("search1", "all", new AjaxOptions()
+            {
+        HttpMethod = "GET",
+        UpdateTargetId = "diva",
+        InsertionMode = InsertionMode.Replace
+                }
+        )
 
-<div id="diva"></div>*@
+
+    <div id="diva"></div>*@
 
 
 
@@ -111,13 +111,17 @@
 
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
 
-    <p style="float:right;">
+    <p style="float:right;margin-left:5px;">
         @Html.ActionLink("ترتيب بالاحدث", "index1", null, new { @class = "btn btn-warning" })
+    </p>
+
+    <p style="float:right;">
+        @Html.ActionLink("الترتيب الابجدي ", "index", null, new { @class = "btn btn-info" })
     </p>
 
 </div>
 
-<div class="table-responsive "style="clear:both">
+<div class="table-responsive " style="clear:both">
     <table class="table table-bordered  table-hover rounded-circle">
         <thead class="bg-info">
             <tr>
@@ -146,7 +150,7 @@
                 </th>
                 <th></th>
             </tr>
-        </thead>    
+        </thead>
         <tbody>
             @foreach (var item in Model)
             {
@@ -168,7 +172,7 @@
                         @Html.DisplayFor(modelite => item.ProjectTb.Projectcode)
                     </td>
                     <th>
-                        @Html.DisplayFor(model => item  .ProjectTb.DoctorTb.DoctorName)
+                        @Html.DisplayFor(model => item.ProjectTb.DoctorTb.DoctorName)
                     </th>
                     <td>
                         @Html.DisplayFor(modelItem => item.StudnetPhoneNumber)
@@ -176,14 +180,14 @@
 
                     <td class="col-4  col-sm-2">
                         @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" }) 
+                        @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" })
 
                         @*@Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })*@
 
 
-@if (User.IsInRole("owner"))
-{
-    @: | @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+                        @if (User.IsInRole("owner"))
+                        {
+                            @: | @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
 }
 
                         @if (User.IsInRole("employee"))

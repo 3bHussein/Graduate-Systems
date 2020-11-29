@@ -107,12 +107,17 @@
 
 
 
-<p>
-    <br />
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
-</p>
+<div>
 
-<div class="table-responsive ">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+
+    <p style="float:right;">
+        @Html.ActionLink("ترتيب بالاحدث", "index1", null, new { @class = "btn btn-warning" })
+    </p>
+
+</div>
+
+<div class="table-responsive "style="clear:both">
     <table class="table table-bordered  table-hover rounded-circle">
         <thead class="bg-info">
             <tr>

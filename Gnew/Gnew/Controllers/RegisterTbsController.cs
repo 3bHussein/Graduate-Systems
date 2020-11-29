@@ -32,6 +32,16 @@ namespace Graduate_Systems.Controllers
 
 
         }
+        public ActionResult Index1(int page = 1)
+        {
+            var registerTbs = db.RegisterTbs.Include(r => r.ProjectTb);
+            return View(registerTbs.ToList().OrderByDescending(a => a.id).ToPagedList(page, 8));
+
+            //return PartialView("_Register", registerTbs);
+
+
+
+        }
 
 
         public PartialViewResult all()
