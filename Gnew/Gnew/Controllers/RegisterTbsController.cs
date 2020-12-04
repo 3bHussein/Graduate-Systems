@@ -107,16 +107,20 @@ namespace Graduate_Systems.Controllers
         {
 
             x = text1;
-            ViewBag.DocId = new SelectList(db.DoctorTbs, "id", "DoctorName ");
+            //ViewBag.DocId = new SelectList(db.DoctorTbs, "id", "DoctorName ");
+            ViewBag.DocId = new SelectList(db.ProjectTbs, "projectId", "Projectcode ");
 
 
+
+            //var QSCount2 = (from emp in db.RegisterTbs
+            //                select emp).Where(a=>a.ProjectTb.DoctorTb.DoctorName== text1).Count();
             var QSCount2 = (from emp in db.RegisterTbs
-                            select emp).Where(a=>a.ProjectTb.DoctorTb.DoctorName== text1).Count();
-
+                            select emp).Where(a => a.ProjectTb.Projectcode== text1).Count();
 
             ViewBag.Reg = QSCount2;
 
-            return View("SearchbyDoc", db.RegisterTbs.Where(a => a.ProjectTb.DoctorTb.DoctorName.ToString().Contains(text1)));
+            //return View("SearchbyDoc", db.RegisterTbs.Where(a => a.ProjectTb.DoctorTb.DoctorName.ToString().Contains(text1)));
+            return View("SearchbyDoc", db.RegisterTbs.Where(a => a.ProjectTb.Projectcode.ToString().Contains(text1)));
 
 
 
@@ -310,25 +314,42 @@ namespace Graduate_Systems.Controllers
 
             name = x;
 
+            //var result = (from p in db.RegisterTbs
+            //              join c in db.ProjectTbs
+            //              on p.projectId equals c.projectId
+            //              join q in db.DoctorTbs
+            //              on c.DocId equals q.id
+
+            //              where q.DoctorName== x
+
+            //               select new
+            //              {
+            //                  p.DateReg,
+            //                  p.StudentName,
+            //                  p.StudentRegNo,
+            //                    c.ProjectName,
+            //                    c.Projectcode,
+            //                    q.DoctorName
+            //              }).ToList();
+
             var result = (from p in db.RegisterTbs
                           join c in db.ProjectTbs
                           on p.projectId equals c.projectId
                           join q in db.DoctorTbs
                           on c.DocId equals q.id
 
-                          where q.DoctorName== x
+                          where c.Projectcode == x
 
-                          //     where c.DocId = idd
                           select new
                           {
                               p.DateReg,
                               p.StudentName,
                               p.StudentRegNo,
-                                c.ProjectName,
-                                c.Projectcode,
-                                q.DoctorName
+                              c.ProjectName,
+                              c.Projectcode,
+                              q.DoctorName
                           }).ToList();
- 
+
 
             //var result2 = ().tolist();
 
