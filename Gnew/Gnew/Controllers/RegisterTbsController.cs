@@ -102,8 +102,9 @@ namespace Graduate_Systems.Controllers
 
         }
        static string x;
+        static string y;
 
-        public ActionResult SearchbyDoc(string text1)
+        public ActionResult Searchbyproject(string text1)
         {
 
             x = text1;
@@ -120,53 +121,29 @@ namespace Graduate_Systems.Controllers
             ViewBag.Reg = QSCount2;
 
             //return View("SearchbyDoc", db.RegisterTbs.Where(a => a.ProjectTb.DoctorTb.DoctorName.ToString().Contains(text1)));
-            return View("SearchbyDoc", db.RegisterTbs.Where(a => a.ProjectTb.Projectcode.ToString().Contains(text1)));
-
-
-
-
-
-
-
+            return View("Searchbyproject", db.RegisterTbs.Where(a => a.ProjectTb.Projectcode.ToString().Contains(text1)));
 
 
 
 
         }
-        public ActionResult SearchbyCode(string text1)
+
+        public ActionResult SearchbyDoc(string text1)
         {
 
-            x = text1;
+            y = text1;
             ViewBag.DocId = new SelectList(db.DoctorTbs, "id", "DoctorName ");
 
 
+
             var QSCount2 = (from emp in db.RegisterTbs
-                            select emp).Where(a => a.ProjectTb.DoctorTb.DoctorName == text1).Count();
+                         select emp).Where(a=>a.ProjectTb.DoctorTb.DoctorName== text1).Count();
 
+             ViewBag.Reg = QSCount2;
 
-            ViewBag.Reg = QSCount2;
-
+            //return View("SearchbyDoc", db.RegisterTbs.Where(a => a.ProjectTb.DoctorTb.DoctorName.ToString().Contains(text1)));
             return View("SearchbyDoc", db.RegisterTbs.Where(a => a.ProjectTb.DoctorTb.DoctorName.ToString().Contains(text1)));
-
-
-
-
-
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
 
         // GET: RegisterTbs/Details/5
         public ActionResult Details(int? id)
@@ -308,7 +285,7 @@ namespace Graduate_Systems.Controllers
         }
 
 
-        public ActionResult Reportbydoc(string id,string name)
+        public ActionResult Reportbyproject(string id,string name)
         {
 
 
@@ -401,6 +378,82 @@ namespace Graduate_Systems.Controllers
                 out warnings);
             return File(renderedBytes, mimeType);
         }
+        public ActionResult ReportbyDoc(string id, string name)
+        {
+
+
+            name = y;
+
+            var result = (from p in db.RegisterTbs
+                      join c in db.ProjectTbs
+                      on p.projectId equals c.projectId
+                      join q in db.DoctorTbs
+                      on c.DocId equals q.id
+
+                      where q.DoctorName== y
+
+                       select new
+                      {
+                          p.DateReg,
+                          p.StudentName,
+                          p.StudentRegNo,
+                            c.ProjectName,
+                            c.Projectcode,
+                            q.DoctorName
+                      }).ToList();
+
+
+            //var result2 = ().tolist();
+
+
+
+            LocalReport lr = new LocalReport();
+            string path = Path.Combine(Server.MapPath("~/Report"), "Report.rdlc");
+            if (System.IO.File.Exists(path))
+            {
+                lr.ReportPath = path;
+            }
+            else
+            {
+                return View("Index");
+            }
+
+            ReportDataSource rd = new ReportDataSource("mydata", result);
+            lr.DataSources.Add(rd);
+            string reportType = id;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+
+
+            string deviceInfo =
+
+            "<DeviceInfo>" +
+            "  <OutputFormat>" + id + "</OutputFormat>" +
+            "  <PageWidth>8.5in</PageWidth>" +
+            "  <PageHeight>11in</PageHeight>" +
+            "  <MarginTop>0.5in</MarginTop>" +
+            "  <MarginLeft>1in</MarginLeft>" +
+            "  <MarginRight>1in</MarginRight>" +
+            "  <MarginBottom>0.5in</MarginBottom>" +
+            "</DeviceInfo>";
+
+            Warning[] warnings;
+            string[] streams;
+            byte[] renderedBytes;
+
+            renderedBytes = lr.Render(
+                reportType,
+                deviceInfo,
+                out mimeType,
+                out encoding,
+                out fileNameExtension,
+                out streams,
+                out warnings);
+            return File(renderedBytes, mimeType);
+        }
+
 
         public ActionResult Report(string id)
         {

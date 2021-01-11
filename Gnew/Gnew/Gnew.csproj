@@ -427,7 +427,7 @@
     <Content Include="Views\RegisterTbs\Search.cshtml" />
     <Content Include="Views\Shared\_Register.cshtml" />
     <Content Include="Views\RegisterTbs\Create1.cshtml" />
-    <Content Include="Views\RegisterTbs\SearchbyDoc.cshtml" />
+    <Content Include="Views\RegisterTbs\Searchbyproject.cshtml" />
     <Content Include="Views\AspNetRoles\Create.cshtml" />
     <Content Include="Views\AspNetRoles\Delete.cshtml" />
     <Content Include="Views\AspNetRoles\Details.cshtml" />
@@ -455,6 +455,7 @@
     <Content Include="Views\AspNetUsers\Edit.cshtml" />
     <Content Include="Views\AspNetUsers\Index.cshtml" />
     <Content Include="Views\RegisterTbs\Index1.cshtml" />
+    <Content Include="Views\RegisterTbs\SearchbyDoc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,177 @@
+﻿@model IEnumerable<Gnew.Models.RegisterTb>
+
+@{
+    ViewBag.Title = "search";
+}
+    <div class="container">
+        <br />
+
+        <div class="text-center jumbotron">
+
+            <h2>Search By Project  </h2>
+        </div>
+
+        <div>
+
+            @using (Html.BeginForm("Searchbyproject", "RegisterTbs", FormMethod.Post))
+            {
+    <div class=''>
+
+        <p style="width:100px;">
+
+        </p>
+
+        <div class="form-group d-block">
+            @Html.TextBox("text1", null, new { @class = "search-box form-control hidden", style = "display:none", placeholder = "ادخل اسم الطالب" })
+
+            @*<input type="text" id="text1" />*@
+            @Html.DropDownList("DocId", null, "---------- Select Project ----------", htmlAttributes: new { @class = "form-control", @onChange = "myf(this)" })
+
+
+
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+
+                <script>
+                    function myf(aadd) {
+                        var x = aadd.value;
+                        var z = aadd.options[aadd.selectedIndex].innerHTML;
+                        $('#text1').val(z);
+
+                    }
+                </script>
+            }
+
+
+        </div>
+
+        <br />
+
+
+        <button type="submit" class="btn btn-primary">
+            search
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+
+        |
+
+        <a href="~/RegisterTbs/Searchbyproject" class="btn btn-info">back</a>
+
+        <br />
+
+
+
+
+
+
+    </div>  }
+        </div>
+        <p>
+            <h5>Total Students:</h5>
+
+            @ViewBag.Reg
+
+
+        </p>
+
+
+        @Html.ActionLink("PDF", "Reportbyproject", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
+        @Html.ActionLink("Excel", "Reportbyproject", new { id = "Excel" }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Word", "Reportbyproject", new { id = "Word" }, new { @class = "btn btn-primary" })
+
+
+
+        <br />
+        <br />
+
+    </div>
+
+<div class="table-responsive">
+    <table class="table table-bordered  table-hover rounded-circle">
+        <thead class="bg-info">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateReg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentRegNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectTb.ProjectName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectTb.Projectcode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectTb.DoctorTb.DoctorName)
+                </th>
+
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+@if (User.IsInRole("owner"))
+{
+
+                <th></th>
+}
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateReg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentRegNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectTb.ProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelite => item.ProjectTb.Projectcode)
+                </td>
+                <th>
+                    @Html.DisplayFor(model => item.ProjectTb.DoctorTb.DoctorName)
+                </th>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+               
+
+                     @if (User.IsInRole("owner"))
+                     {
+                      @:  <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" })@: |
+                            @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" })
+                            @: | @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+                       @: </td>
+                     }
+
+
+
+                     
+            </tr>
+        }
+
+    </table>
+</div>
+
+@*@Html.ActionLink("PDF", "Reportbydoc", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
+@Html.ActionLink("Excel", "Reportbydoc", new { id = "Excel" }, new { @class = "btn btn-success" }) |
+@Html.ActionLink("Word", "Reportbydoc", new { id = "Word" }, new { @class = "btn btn-primary" })*@
+
+<br />
+<br />
+
