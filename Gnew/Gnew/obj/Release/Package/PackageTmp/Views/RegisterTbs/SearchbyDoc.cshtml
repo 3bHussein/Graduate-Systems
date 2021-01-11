@@ -1,92 +1,65 @@
 ﻿@model IEnumerable<Gnew.Models.RegisterTb>
-
 @{
     ViewBag.Title = "search";
 }
-    <div class="container">
-        <br />
-
-        <div class="text-center jumbotron">
-
-            <h2>Search By Doctor  </h2>
-        </div>
-
-        <div>
-
-            @using (Html.BeginForm("SearchbyDoc", "RegisterTbs", FormMethod.Post))
+<div class="container">
+    <br />
+    <div class="text-center jumbotron">
+        <h2>Search By Doctor  </h2>
+    </div>
+    <div>
+        @using (Html.BeginForm("SearchbyDoc", "RegisterTbs", FormMethod.Post))
             {
-    <div class=''>
-
-        <p style="width:100px;">
-
-        </p>
-
-        <div class="form-group d-block">
-            @Html.TextBox("text1", null, new { @class = "search-box form-control hidden", style = "display:none", placeholder = "ادخل اسم الطالب" })
-
-            @*<input type="text" id="text1" />*@
-            @Html.DropDownList("DocId", null, "-----Select Doctor-----", htmlAttributes: new { @class = "form-control", @onChange = "myf(this)" })
+            <div class=''>
+                <p style="width:100px;">
+                </p>
+                <div class="form-group d-block">
+                    @Html.TextBox("text1", null, new { @class = "search-box form-control hidden", style = "display:none", placeholder = "ادخل اسم الطالب" })
+                    @*<input type="text" id="text1" />*@
+                    @Html.DropDownList("DocId", null, "---------- Select Doctor ----------", htmlAttributes: new { @class = "form-control", @onChange = "myf(this)" })
 
 
-
-
-            @section Scripts {
-                @Scripts.Render("~/bundles/jqueryval")
-
-                <script>
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                        <script>
                     function myf(aadd) {
                         var x = aadd.value;
                         var z = aadd.options[aadd.selectedIndex].innerHTML;
                         $('#text1').val(z);
 
                     }
-                </script>
-            }
+                        </script>
+                    }
 
+                </div>
+                <br />
 
-        </div>
+                <button type="submit" class="btn btn-primary">
+                    search
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+                |
 
-        <br />
-
-
-        <button type="submit" class="btn btn-primary">
-            search
-            <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
-
-        |
-
-        <a href="~/RegisterTbs/SearchbyDoc" class="btn btn-info">back</a>
-
-        <br />
+                <a href="~/RegisterTbs/SearchbyDoc" class="btn btn-info">back</a>
+                <br />
 
 
 
-
-
-
-    </div>  }
-        </div>
-        <p>
-            <h5>Total Students:</h5>
-
-            @ViewBag.Reg
-
-
-        </p>
-
-
-        @Html.ActionLink("PDF", "Reportbydoc", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
-        @Html.ActionLink("Excel", "Reportbydoc", new { id = "Excel" }, new { @class = "btn btn-success" }) |
-        @Html.ActionLink("Word", "Reportbydoc", new { id = "Word" }, new { @class = "btn btn-primary" })
-
-
-
-        <br />
-        <br />
-
+            </div>  }
     </div>
+    <p>
+        <h5>Total Students:</h5>
+        @ViewBag.Reg
 
+    </p>
+
+    @Html.ActionLink("PDF", "ReportbyDoc", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
+    @Html.ActionLink("Excel", "ReportbyDoc", new { id = "Excel" }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Word", "ReportbyDoc", new { id = "Word" }, new { @class = "btn btn-primary" })
+
+    <br />
+    <br />
+</div>
 <div class="table-responsive">
     <table class="table table-bordered  table-hover rounded-circle">
         <thead class="bg-info">
@@ -110,18 +83,16 @@
                     @Html.DisplayNameFor(model => model.ProjectTb.DoctorTb.DoctorName)
                 </th>
 
-
                 <th>
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
-@if (User.IsInRole("owner"))
-{
+                @if (User.IsInRole("owner"))
+                {
 
-                <th></th>
-}
+                    <th></th>
+                }
             </tr>
         </thead>
-
         @foreach (var item in Model)
         {
             <tr>
@@ -144,34 +115,28 @@
                     @Html.DisplayFor(model => item.ProjectTb.DoctorTb.DoctorName)
                 </th>
 
-
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
-               
 
-                     @if (User.IsInRole("owner"))
-                     {
-                      @:  <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" })@: |
-                            @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" })
-                            @: | @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
-                       @: </td>
-                     }
+                @*@if (User.IsInRole("owner"))
+                {
+                    @:
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" })@: |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" })
+                        @: | @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+                        @:
+                    </td>
+                     }*@
 
 
-
-                     
             </tr>
         }
-
     </table>
 </div>
-
 @*@Html.ActionLink("PDF", "Reportbydoc", new { id = "PDF" }, new { @class = "btn btn-danger" }) |
-@Html.ActionLink("Excel", "Reportbydoc", new { id = "Excel" }, new { @class = "btn btn-success" }) |
-@Html.ActionLink("Word", "Reportbydoc", new { id = "Word" }, new { @class = "btn btn-primary" })*@
-
+    @Html.ActionLink("Excel", "Reportbydoc", new { id = "Excel" }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Word", "Reportbydoc", new { id = "Word" }, new { @class = "btn btn-primary" })*@
 <br />
 <br />
-

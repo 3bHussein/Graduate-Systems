@@ -144,8 +144,8 @@
                 <th>
                     @Html.DisplayNameFor(model => model.StudnetPhoneNumber)
                 </th>
-                <th></th>
-            </tr>
+                <th class="col-4 col-sm-2"></th>
+ </tr>
         </thead>    
         <tbody>
             @foreach (var item in Model)
@@ -174,9 +174,9 @@
                         @Html.DisplayFor(modelItem => item.StudnetPhoneNumber)
                     </td>
 
-                    <td class="col-4  col-sm-2">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" }) 
+                    <td class="col-8  col-sm-8">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary col-4" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info col-6" }) 
 
                         @*@Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })*@
 

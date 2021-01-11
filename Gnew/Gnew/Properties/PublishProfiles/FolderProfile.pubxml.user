@@ -20,7 +20,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/04/2020 22:41:57</publishTime>
     </File>
     <File Include="bin/Gnew.dll">
-      <publishTime>12/10/2020 13:14:08</publishTime>
+      <publishTime>01/11/2021 13:33:17</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>12/04/2020 22:41:57</publishTime>
@@ -644,7 +644,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/04/2020 22:41:57</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/10/2020 13:10:47</publishTime>
+      <publishTime>01/11/2021 12:32:47</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>12/04/2020 22:41:57</publishTime>
@@ -695,16 +695,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/04/2020 22:41:57</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Index.cshtml">
-      <publishTime>12/04/2020 22:41:57</publishTime>
+      <publishTime>01/11/2021 12:49:36</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Index1.cshtml">
       <publishTime>12/04/2020 22:41:57</publishTime>
     </File>
     <File Include="Views/RegisterTbs/Search.cshtml">
-      <publishTime>12/04/2020 22:41:57</publishTime>
+      <publishTime>01/11/2021 12:38:11</publishTime>
     </File>
     <File Include="Views/RegisterTbs/SearchbyDoc.cshtml">
-      <publishTime>12/04/2020 22:41:57</publishTime>
+      <publishTime>01/11/2021 13:24:06</publishTime>
+    </File>
+    <File Include="Views/RegisterTbs/Searchbyproject.cshtml">
+      <publishTime>01/11/2021 13:08:51</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>12/04/2020 22:41:57</publishTime>
@@ -716,7 +719,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/04/2020 22:41:57</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/04/2020 22:41:57</publishTime>
+      <publishTime>01/11/2021 13:10:37</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>12/04/2020 22:41:57</publishTime>
