@@ -26,7 +26,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.40338in</Height>
+              <Height>0.37734in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -241,7 +241,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.31389in</Height>
+              <Height>0.28785in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -254,7 +254,7 @@
                             <TextRun>
                               <Value>=Fields!StudentName.Value</Value>
                               <Style>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -288,7 +288,7 @@
                             <TextRun>
                               <Value>=Fields!StudentRegNo.Value</Value>
                               <Style>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -322,7 +322,7 @@
                             <TextRun>
                               <Value>=Fields!DoctorName.Value</Value>
                               <Style>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -356,7 +356,7 @@
                             <TextRun>
                               <Value>=Fields!ProjectName.Value</Value>
                               <Style>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -390,7 +390,7 @@
                             <TextRun>
                               <Value>=Fields!Projectcode.Value</Value>
                               <Style>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -424,7 +424,7 @@
                             <TextRun>
                               <Value>=Fields!DateReg.Value</Value>
                               <Style>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                                 <Format>d MMMM, yyyy</Format>
                               </Style>
                             </TextRun>
@@ -451,7 +451,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.30735in</Height>
+              <Height>0.28131in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -532,7 +532,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.23622in</Height>
+              <Height>0.21018in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -653,9 +653,7 @@
             <Value>=Fields!StudentName.Value</Value>
           </SortExpression>
         </SortExpressions>
-        <Top>0.125in</Top>
-        <Left>0.11161in</Left>
-        <Height>1.26084in</Height>
+        <Height>1.15667in</Height>
         <Width>6.35358in</Width>
         <Style>
           <Border>
@@ -664,10 +662,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>4.18151cm</Height>
+    <Height>2.93795cm</Height>
     <Style />
   </Body>
-  <Width>16.42157cm</Width>
+  <Width>16.13809cm</Width>
   <Page>
     <PageHeader>
       <Height>2.06666cm</Height>
@@ -736,7 +734,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox27</rd:DefaultName>
           <Top>0.01545cm</Top>
-          <Left>10.28045cm</Left>
+          <Left>9.96295cm</Left>
           <Height>2.05121cm</Height>
           <Width>6.05268cm</Width>
           <ZIndex>1</ZIndex>
@@ -780,7 +778,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox36</rd:DefaultName>
           <Top>0cm</Top>
-          <Left>14.65024cm</Left>
+          <Left>14.33274cm</Left>
           <Height>0.6cm</Height>
           <Width>0.77151cm</Width>
           <Style>
@@ -809,7 +807,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox37</rd:DefaultName>
           <Top>0cm</Top>
-          <Left>15.33101cm</Left>
+          <Left>15.01351cm</Left>
           <Height>0.6cm</Height>
           <Width>0.48199cm</Width>
           <ZIndex>1</ZIndex>
@@ -841,7 +839,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox37</rd:DefaultName>
           <Top>0cm</Top>
-          <Left>13.75923cm</Left>
+          <Left>13.44173cm</Left>
           <Height>0.6cm</Height>
           <Width>1.04255cm</Width>
           <ZIndex>2</ZIndex>
@@ -873,7 +871,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox36</rd:DefaultName>
           <Top>0cm</Top>
-          <Left>15.64485cm</Left>
+          <Left>15.32735cm</Left>
           <Height>0.6cm</Height>
           <Width>0.63432cm</Width>
           <ZIndex>3</ZIndex>

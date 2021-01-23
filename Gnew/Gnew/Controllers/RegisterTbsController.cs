@@ -319,7 +319,8 @@ namespace Graduate_Systems.Controllers
 
                           select new
                           {
-                              p.DateReg,
+                              //p.DateReg,
+                              p.StudnetPhoneNumber,
                               p.StudentName,
                               p.StudentRegNo,
                               c.ProjectName,
@@ -333,7 +334,7 @@ namespace Graduate_Systems.Controllers
 
 
             LocalReport lr = new LocalReport();
-            string path = Path.Combine(Server.MapPath("~/Report"), "Report.rdlc");
+            string path = Path.Combine(Server.MapPath("~/Report"), "Report1.rdlc");
             if (System.IO.File.Exists(path))
             {
                 lr.ReportPath = path;
@@ -343,7 +344,7 @@ namespace Graduate_Systems.Controllers
                 return View("Index");
             }
 
-             ReportDataSource rd = new ReportDataSource("mydata", result);
+             ReportDataSource rd = new ReportDataSource("new", result);
              lr.DataSources.Add(rd);
             string reportType = id;
             string mimeType;
