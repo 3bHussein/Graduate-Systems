@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Graduate Systems</title>
+    <link rel="icon" type="image/png" href="~/Content/img/iconfinder_Task_Manager_100296.png">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("style", required: false)
+    @*<link href="~/Content/Site.css" rel="stylesheet" />*@
+</head>
+<body class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;margin-top:-29px;">
+        <a class="navbar-brand" href="#">
+            @Html.ActionLink("Graduate Systems", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="~/DoctorTbs/index">Doctor<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="~/ProjectTbs/index">Project </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/RegisterTbs/index">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="~/StudentTbs/index">Student</a>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Search
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @*<a class="nav-link" href="~/RegisterTbs/Search">Registration Search</a>*@
+                        <a class="nav-link" href="~/RegisterTbs/Searchbyproject">Report By Projects</a>
+                        <a class="nav-link" href="~/RegisterTbs/SearchbyDoc">Report By Doctor</a>
+                        @*<div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>*@
+                    </div>
+                </li>
+
+
+
+            </ul>
+            @Html.Partial("_LoginPartial")
+
+        </div>
+    </nav>
+
+    <div class=" ">
+        @RenderBody()
+        @*<hr />*@
+        <footer class="  text-center modal-footer   ">
+            <div class="container">
+                @*<p style="color:#888">More Project at <a href="https://github.com/3bHussein">Github</a></p>*@
+                <h5>Powerd by |<strong class="" style="color:forestgreen">AHI</strong>Team Developer</h5>
+                <small>&copy; @DateTime.Now.Year - Graduate Systems</small>
+
+            </div>
+        </footer>
+    </div>
+
+     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+  
+</body>
+</html>

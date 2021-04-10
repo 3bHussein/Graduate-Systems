@@ -121,7 +121,8 @@ namespace Graduate_Systems.Controllers
             ViewBag.Reg = QSCount2;
 
             //return View("SearchbyDoc", db.RegisterTbs.Where(a => a.ProjectTb.DoctorTb.DoctorName.ToString().Contains(text1)));
-            return View("Searchbyproject", db.RegisterTbs.Where(a => a.ProjectTb.Projectcode.ToString().Contains(text1)));
+            //return View("Searchbyproject", db.RegisterTbs.Where(a => a.ProjectTb.Projectcode.ToString().Contains(text1)));
+            return View("Searchbyproject", db.RegisterTbs.Where(a => a.ProjectTb.Projectcode.ToString().StartsWith(text1)));
 
 
 

@@ -389,6 +389,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\test.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -472,6 +473,7 @@
     <Content Include="Views\AspNetUsers\Index.cshtml" />
     <Content Include="Views\RegisterTbs\Index1.cshtml" />
     <Content Include="Views\RegisterTbs\SearchbyDoc.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
