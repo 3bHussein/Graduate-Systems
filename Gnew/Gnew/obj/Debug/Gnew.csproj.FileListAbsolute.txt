@@ -460,3 +460,5 @@ D:\New Start\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.csproj.CoreCompileInputs.
 D:\New Start\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.csproj.CopyComplete
 D:\New Start\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.dll
 D:\New Start\Graduate-Systems\Gnew\Gnew\obj\Debug\Gnew.pdb
+D:\New Start\Graduate-Systems\Gnew\Gnew\obj\Debug\RdlCompile.cache
+D:\New Start\Graduate-Systems\Gnew\Gnew\obj\Debug\RdlCompile.compiled
